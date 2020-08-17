@@ -1,0 +1,15 @@
+1) install NodeJS from https://nodejs.org/en/ (left button)
+2) create folder (use folder ST/yourName/Project)
+3) use console/bash (ctrl + ` - VSC)
+$$ - команда, набираемая в терминале
+4) $$  npm init -y (ENTER)
+    появится файл package.json
+5) $$  npm i webpack webpack-cli -D
+    1 - появится package-lock.json
+    2 - появится node_modules
+    3 - в package.json в поле devDependencies появятся записи о установленных пакетах
+6) написать скрипт "build": "webpack" в разделе scripts в файле package.json и сохранить
+7) при отсутствии папки src в папке проекта создать ее
+8) при отсутствии файла src/index.js в папке проекта создать его
+9) $$  npm run build
+    появится папка dist с собранным проектом
