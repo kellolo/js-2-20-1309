@@ -22,6 +22,10 @@
     font-weight: 400;
     color: #f16d7f; }
 
+    .headerCartWrapIn img {
+      border-radius: 6px;
+    }
+
 @media (max-width: 526px) {
   .headerAccountAndCart {
     flex: 0 0 50%;
@@ -34,15 +38,19 @@
   display: none !important;
 }
 #basket {
-  background: #fff !important;
-  padding: 10px;
+ /* background: #fff !important; */
+  /* padding: 10px; */
 }
 #basket-toggler {
-  width: 50px;
+  max-width: 50px;
   height: 35px;
-  background-image: url('../../assets/imgs/cart.png');
+  padding: 18px;
+  background-image: url(../../assets/imgs/cart.png);
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 2px;
+  border: none;
+  background-color: transparent;
 }
 .dropdown .btn-lg {
   position: relative;
@@ -53,7 +61,7 @@
   line-height: 32px; }
 .dropdown .dropdown-menu {
   background-color: #ffffff;
-  width: 250px; }
+  max-width: 192px; }
   .dropdown .dropdown-menu div {
     color: #232323;
     font-size: 14px;
@@ -162,15 +170,15 @@
 .nav {
   padding-left: 15px; }
   .nav .navAll:nth-child(3) .dropNav {
-    right: 1px; }
+    /*right: 1px; */ }
   .nav .navAll:nth-child(4) .dropNav {
-    right: 1px; }
+     /*right: 1px; */ }
   .nav .navAll:nth-child(5) .dropNav {
-    right: 1px; }
+     /*right: 1px; */ }
   .nav .navAll:nth-child(6) .dropNav {
-    right: 1px; }
+     /*right: 1px; */ }
   .nav .navAll:nth-child(7) .dropNav {
-    right: 1px; }
+     /*right: 1px; */ }
   .nav .navAll .dropNav {
     display: none;
     position: relative;
@@ -271,14 +279,27 @@
   /*.headerCart:hover .headerCartWrap {
     display: block;
     z-index: 2; } */
+.headerCartWrapPrice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4px 0 4px;
+}
+
+.fa-times-circle {
+  border: none;
+  background-color: transparent;
+}
+
   .headerCart .headerCartWrap {
     position: absolute;
-    width: 260px;
-    left: -40px;
+    right: 20px;
+    max-width: 360px;
  }
     @media (max-width: 650px) {
       .headerCart .headerCartWrap {
-        left: -120px; } }
+        right: 0;} }
     .headerCart .headerCartWrap .headerCartWrapBlock {
       height: 15px; }
     .headerCart .headerCartWrap .headerCartWrapInAll {
@@ -664,7 +685,7 @@
     width: inherit; }
     @media (max-width: 991.98px) {
       .offer a:last-child {
-        outline: 1px solid #cccccc; } }
+        /* outline: 1px solid #cccccc;*/ } }
     @media (min-width: 992px) {
       .offer a:last-child:hover {
         outline: 1px solid #f16d7f; } }
