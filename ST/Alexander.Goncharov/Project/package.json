@@ -1,0 +1,24 @@
+{
+  "name": "GB_JS2_Homework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexBZ85/GB_JS2_Homework.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexBZ85/GB_JS2_Homework/issues"
+  },
+  "homepage": "https://github.com/AlexBZ85/GB_JS2_Homework#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
