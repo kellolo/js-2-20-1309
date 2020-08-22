@@ -1,9 +1,10 @@
 {
-  "name": "Avel_Voloshin",
+  "name": "avel_voloshin",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode production"
+    "build": "webpack --mode development",
+    "dev": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
