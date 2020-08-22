@@ -26,7 +26,7 @@
 //     return local;
 // }
 
-let catalog = {
+export let catalog = {
     container: null,
     items: [],
     basket: null,
@@ -107,5 +107,3 @@ let catalog = {
         }
     }
 }
-
-catalog.init();
