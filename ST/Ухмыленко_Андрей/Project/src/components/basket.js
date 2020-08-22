@@ -1,9 +1,15 @@
-let basket = {
-    items: [],
-    container: null,
-    containerItems: null,
-    shown: false,
-    url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
+class Basket {
+
+    constructor(items, shown, url) {
+        this.items = items;
+        this.shown = shown;
+        this.url = url;
+    }
+
+    _get(url) {
+        return fetch(url).then(d => d.json());
+    }
+
     init() {
         this.container = document.querySelector('#basket');
         this.containerItems = document.querySelector('#basket-items');
@@ -15,40 +21,39 @@ let basket = {
                 this._render();
                 this._handleActions();
             })
-    },
-    _get(url) {
-        return fetch(url).then(d => d.json());
-    },
+    }
+
     _render() {
         let htmlStr = '';
         this.items.forEach(item => {
-        // this.items.forEach(function (item) {
+            // this.items.forEach(function (item) {
             htmlStr += `
-            <div class="d-flex headerCartWrapIn mb-1 p-2">
-                    <img src="${item.productImg}" alt="" width="85" height="100>
-                    <div>
-                        <div>${item.productName}</div>
-                        <span>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </span>
-                        <div class="headerCartWrapPrice">${item.amount} 
-                            <span>x</span> $${item.productPrice}
-                        </div>
-
-                <button 
-                    class="fas fa-times-circle" 
-                    data-id="${item.productId}"
-                    name="remove"
-                ></button>
-            </div>
-            `
+                <div class="d-flex headerCartWrapIn mb-1 p-2">
+                        <img src="${item.productImg}" alt="" width="85" height="100>
+                        <div>
+                            <div>${item.productName}</div>
+                            <span>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </span>
+                            <div class="headerCartWrapPrice">${item.amount} 
+                                <span>x</span> $${item.productPrice}
+                            </div>
+    
+                    <button 
+                        class="fas fa-times-circle" 
+                        data-id="${item.productId}"
+                        name="remove"
+                    ></button>
+                </div>
+                `
         });
         this.containerItems.innerHTML = htmlStr;
-    },
+    }
+
     _handleActions() {
         document.querySelector('#basket-toggler').addEventListener('click', () => {
             this.container.classList.toggle('invisible');
@@ -61,7 +66,8 @@ let basket = {
                 this._remove(ev.target.dataset.id);
             }
         })
-    },
+    }
+
     add(item) {
         let find = this.items.find(el => el.productId == item.productId);
         if (find) {
@@ -70,7 +76,8 @@ let basket = {
             this.items.push(item);
         }
         this._render();
-    },
+    }
+
     _remove(id) {
         let find = this.items.find(el => el.productId == id);
         if (find.amount > 1) {
@@ -82,4 +89,4 @@ let basket = {
     }
 }
 
-basket.init();
+export let basket = new Basket([], false, 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json');
