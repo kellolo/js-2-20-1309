@@ -1,7 +1,10 @@
-import { basket } from "./basket";
-import { catalog } from "./catalog";
+import { Basket } from "./basket";
+import { Catalog } from "./catalog";
 
 export default () => {
-  basket.init();
-  catalog.init(basket);
+  const userBasket = new Basket();
+  const userCatalog = new Catalog();
+
+  userBasket.init();
+  userCatalog.init(userBasket);
 };
