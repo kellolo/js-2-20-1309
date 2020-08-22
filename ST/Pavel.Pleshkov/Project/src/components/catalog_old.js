@@ -26,17 +26,11 @@
 //     return local;
 // }
 
-class Catalog {
-    constructor(url) {
-        this.container = null;
-        this.items = [];
-        this.basket = null;
-        this.url = url;
-    }
-    // container: null,
-    // items: [],
-    // basket: null,
-    // url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
+export let catalog = {
+    container: null,
+    items: [],
+    basket: null,
+    url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
     init(basket) {
         this.container = document.querySelector('#catalog');
         this.basket = basket;
@@ -48,13 +42,13 @@ class Catalog {
                 this._render();
                 this._handleActions();
             })
-    }
+    },
     _get(url) {
         return fetch(url).then(d => d.json());
-    }
+    },
     _fillCatalog() { //Инкапсуляция (условная для JS)
         this.items = getArrayOfObjects();
-    }
+    },
     _render() {
         let htmlStr = '';
         this.items.forEach(item => {
@@ -94,7 +88,7 @@ class Catalog {
                         </div>`
         });
         this.container.innerHTML = htmlStr;
-    }
+    },
     _handleActions() {
         this.container.addEventListener('click', ev => {
             if (ev.target.name == 'add') {
@@ -102,7 +96,7 @@ class Catalog {
                 this.basket.add(this._createNewItem(dataset));
             }
         })
-    }
+    },
     _createNewItem(dataset) {
         return {
             productId: dataset.id,
@@ -115,6 +109,3 @@ class Catalog {
 }
 
 // catalog.init();
-
-let urlCatalog = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json';
-export let catalog = new Catalog(urlCatalog);
