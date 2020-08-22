@@ -10,7 +10,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
+          'css-loader',
+        ],
       },
       {
         test: /\.(png|jpe?g|svg|gif)$/i,
