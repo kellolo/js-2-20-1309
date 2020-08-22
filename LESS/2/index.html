@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let doris = {
+        //     name: 'Doris',
+        //     age: 33,
+        //     gender: 'female',
+        //     sayHello() {
+        //         console.log(this.name + ' greets you');
+        //     }
+        // }
+
+        // let boris = {
+        //     name: 'Boris',
+        //     age: 34,
+        //     gender: 'male',
+        //     sayHello() {
+        //         console.log(this.name + ' greets you');
+        //     }
+        // }
+
+        // class Human {
+        //     constructor(n, a, g) {
+        //         this.name = n;
+        //         this.age = a;
+        //         this.gender = g;
+        //     }
+
+        //     sayHello() {
+        //         console.log(this.name + ' greets you');
+        //     }
+        // }
+
+
+        // let doris = new Human('DORIS', 33, 'f');
+        // let boris = new Human('BORIS', 34, 'm');
+
+        // doris.sayHello();
+        // boris.sayHello();
+
+
+
+
+        class Human {
+            constructor(n, a) {
+                this.name = n;
+                this.age = a;
+            }
+
+            sayHello() {
+                console.log(this.name + ' greets you');
+            }
+        }
+
+        class Male extends Human {
+            constructor(n, a) {
+                super(n, a);
+                this.gender = 'male';
+            }
+        }
+
+        class Female extends Human {
+            constructor(n, a) {
+                super(n, a);
+                this.gender = 'female';
+            }
+        }
+
+        let doris = new Female('DORIS', 33);
+        let boris = new Male('BORIS', 34);
+
+        doris.sayHello();
+        boris.sayHello();
+    </script>
+</body>
+</html>
