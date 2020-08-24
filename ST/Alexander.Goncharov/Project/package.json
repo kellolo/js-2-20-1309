@@ -2,9 +2,10 @@
   "name": "GB_JS2_Homework",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack --mode development"
+    "build": "webpack --mode development",
+    "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,18 @@
   },
   "homepage": "https://github.com/AlexBZ85/GB_JS2_Homework#readme",
   "devDependencies": {
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^4.2.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.10.0",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
   }
 }
