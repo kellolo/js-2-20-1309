@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function fetchData(url) {
+            return fetch(url).then(d => d.json())
+        }
+
+        fetchData('https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json')
+        .then(d => { console.log(d) })
+        .catch(() => { console.log('ERR') })
+        .finally(() => { console.log('done') })
+
+
+        // function asyncFunction(url) {
+        //     return new Promise((res, rej) => {
+        //         let xhr = new XMLHttpRequest();
+        //         xhr.onreadystatechange = function () {
+        //             if (xhr.readyState === 4) {
+        //                 if (xhr.status == 200) {
+        //                     res(xhr.responseText)
+        //                 } else {
+        //                     rej('err')
+        //                 }
+        //             }
+        //         }
+        //         xhr.open('GET', url, true);
+        //         xhr.send();
+        //     })
+        // }
+        
+        // asyncFunction('https://raw.githubusercontent.com/kellolo/static/master/JSON/catalogs.json')
+        //     .then(d => JSON.parse(d))
+        //     .then(data => { console.log(data) })
+        //     .catch(err => { console.log(err) })
+        //     .finally(() => { console.log('done') })
+
+        // function makeGETRequest(url) {
+        //     let xhr = new XMLHttpRequest();
+
+        //     xhr.onreadystatechange = function () {
+        //         if (xhr.readyState === 4) {
+        //             // callback(xhr.responseText);
+        //         }
+
+        //         // if(xhr.status == 404) {
+        //         //     console.log('SOME ERROR')
+        //         // }
+        //     }
+            
+        //     xhr.open('GET', url, true);
+        //     xhr.send();
+        // }
+
+
+        // let a; //a == undefined
+
+        //     setTimeout(() => {
+        //         a = 10;
+        //     }, 0)
+
+        // console.log(a); //undefined
+
+        // let a;
+        // let b = 10;
+
+        // function get(x, cb) {
+        //     setTimeout(() => {
+        //         a = 10 + x;
+        //         cb();
+        //     }, 0)
+        // }
+
+        // get(b, () => {
+        //     doSmth();
+        //     get(b, () => {
+        //         b = a;
+        //         doSmth();
+        //         get(b, () => {
+        //             doSmth();
+        //         })
+        //         //callback hell
+        //     })
+        // })
+
+        // function doSmth() {
+        //     console.log(a, b);
+        // }
+        // function doSmth2() {
+        //     b = a;
+        //     console.log(a, b);
+        // }
+        // get(doSmth);
+
+
+
+    </script>
+</body>
+</html>

@@ -702,7 +702,7 @@
 /*-------------------------------FETURED END-----------------------------*/
 /*-------------------------------OFFER FOR WOMEN ST-----------------------------*/
 .offerWomenLeft {
-  background: url("../../assets/imgs/offerForWomen.jpg");
+  background: url("../../assets/imgs/topHeaderBack.png");
   flex-shrink: 0;
   background-size: cover; }
   @media (max-width: 992px) {
