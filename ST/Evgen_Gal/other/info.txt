@@ -2,7 +2,7 @@
 1) install NodeJS from https://nodejs.org/en/ (left button)
 2) create folder (use folder ST/yourName/Project)
 3) use console/bash (ctrl + ` - VSC)
-$$ - команда, набираемая в терминале
+$$ - команда, набираемая в терминале.
 4) $$  npm init -y (ENTER)
     появится файл package.json
 5) $$  npm i webpack webpack-cli -D
