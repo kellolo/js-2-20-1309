@@ -1,0 +1,20 @@
+{
+  "name": "js-2-20-1309",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bulid": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TatianaKononova/js-2-20-1309.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TatianaKononova/js-2-20-1309/issues"
+  },
+  "homepage": "https://github.com/TatianaKononova/js-2-20-1309#readme"
+}
