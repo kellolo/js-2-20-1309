@@ -1,34 +1,12 @@
-import BasketItem from "./basket-component-catalogItem.js";
+import List from "./list.js";
 
-export default class Basket {
-  constructor(container, url) {
-    this.url = url;
-    this.items = [];
-    this.container = document.querySelector(container);
+export default class Basket extends List {
+  constructor(container, url, obj) {
+    super(container, url, obj);
     this.containerItems = document.querySelector("#basket-items");
     this.shown = false;
-    this._init();
   }
-  _init() {
-    this._get(this.url)
-      .then((basket) => {
-        this.items = basket.content;
-      })
-      .finally(() => {
-        this._render();
-        this._handleActions();
-      });
-  }
-  _get(url) {
-    return fetch(url).then((d) => d.json());
-  }
-  _render() {
-    let htmlStr = "";
-    this.items.forEach((item) => {
-      htmlStr += new BasketItem(item).render();
-    });
-    this.container.innerHTML = htmlStr;
-  }
+
   _handleActions() {
     document.querySelector("#basket-toggler").addEventListener("click", () => {
       this.container.classList.toggle("invisible");
@@ -48,7 +26,7 @@ export default class Basket {
     } else {
       this.items.push(item);
     }
-    this._render();
+    this.render();
   }
   _remove(id) {
     let find = this.items.find((el) => el.productId == id);
@@ -57,6 +35,6 @@ export default class Basket {
     } else {
       this.items.splice(this.items.indexOf(find), 1);
     }
-    this._render();
+    this.render();
   }
 }

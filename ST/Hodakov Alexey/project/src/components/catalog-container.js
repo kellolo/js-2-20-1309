@@ -1,37 +1,11 @@
-import CatalogItem from "./catalog-component-catalogItem.js";
+import List from "./list.js";
 
-export default class Catalog {
+export default class Catalog extends List {
   constructor(container, url, basket) {
-    this.url = url;
-    this.items = [];
-    this.container = document.querySelector(container);
+    super(container, url);
     this.basket = basket;
-    this._init();
   }
-  _init() {
-    this._get(this.url)
-      .then((arr) => {
-        this.items = arr;
-      })
-      .finally(() => {
-        this._render();
-        this._handleActions();
-      });
-  }
-  _get(url) {
-    return fetch(url).then((d) => d.json());
-  }
-  _fillCatalog() {
-    //Инкапсуляция (условная для JS)
-    this.items = getArrayOfObjects();
-  }
-  _render() {
-    let htmlStr = "";
-    this.items.forEach((item) => {
-      htmlStr += new CatalogItem(item).render();
-    });
-    this.container.innerHTML = htmlStr;
-  }
+ 
   _handleActions() {
     this.container.addEventListener("click", (ev) => {
       if (ev.target.name == "add") {
