@@ -1,0 +1,21 @@
+header {
+    background-color: black;
+    height: 30px;
+}
+.goods-list2,
+.goods-list1 {
+    border: 1px solid #212121;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.goods-item {
+    background-color: rgb(223, 223, 223);
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+.cart-button {
+    margin: 5px;
+}
