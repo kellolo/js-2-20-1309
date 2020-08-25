@@ -1,39 +1,14 @@
-// const imgURL = 'https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/';
-// let NAMES = [
-//     'MANGO PEOPLE T-SHIRT', 
-//     'BANANA PEOPLE T-SHIRT', 
-//     'STRAWBERRY PEOPLE T-SHIRT',
-//     'ORANGE PEOPLE T-SHIRT',
-//     'PUMKIN PEOPLE T-SHIRT',
-//     'PINEAPPLE PEOPLE T-SHIRT',
-//     'CUCUMBER PEOPLE T-SHIRT',
-//     'TOMATO PEOPLE T-SHIRT'
-// ];
-// let PRICES = [52, 53, 55, 67, 69, 94, 23, 45];
 
-// function getArrayOfObjects() {
-//     let local = [];
+export default class Catalog{
+    constructor(container,url,basket){
+        this.items=[];
+        this.container=document.querySelector(container);
+        this.url=url;
+        this.basket=basket;
+        this._init();
 
-//     for (let i = 0; i < NAMES.length; i++) {
-//         local.push({
-//             productName: NAMES[i],
-//             productPrice: PRICES[i],
-//             productImg: `${imgURL}featuredItem${i + 1}.jpg`,
-//             productId: 'prod_' + i
-//             //rates (звезды)
-//         })
-//     }
-//     return local;
-// }
-
-export let catalog = {
-    container: null,
-    items: [],
-    basket: null,
-    url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
-    init(basket) {
-        this.container = document.querySelector('#catalog');
-        this.basket = basket;
+    }
+    _init() {
         this._get(this.url)
             .then(arr => {
                 this.items = arr;
@@ -42,13 +17,13 @@ export let catalog = {
                 this._render();
                 this._handleActions();
             })
-    },
+    }
     _get(url) {
         return fetch(url).then(d => d.json());
-    },
+    }
     _fillCatalog() { //Инкапсуляция (условная для JS)
         this.items = getArrayOfObjects();
-    },
+    }
     _render() {
         let htmlStr = '';
         this.items.forEach(item => {
@@ -88,7 +63,7 @@ export let catalog = {
                         </div>`
         });
         this.container.innerHTML = htmlStr;
-    },
+    }
     _handleActions() {
         this.container.addEventListener('click', ev => {
             if (ev.target.name == 'add') {
@@ -96,7 +71,7 @@ export let catalog = {
                 this.basket.add(this._createNewItem(dataset));
             }
         })
-    },
+    }
     _createNewItem(dataset) {
         return {
             productId: dataset.id,
