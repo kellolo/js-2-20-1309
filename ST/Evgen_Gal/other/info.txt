@@ -44,7 +44,7 @@ $$ npm i bootstrap jquery popper.js
 основные верстальческие инструменты (устанал. package.json, package-lock.json)
 
 $$ npm i -D webpack webpack-cli html-webpack-plugin css-loader mini-css-extract-plugin 
-сборка JS файлов
+сборка JS, html, css файлов
 
 $$ npm i -D webpack-dev-server
-красивая автоперезагрузка
+красивая автоперезагрузка проекта
