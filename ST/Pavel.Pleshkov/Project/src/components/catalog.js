@@ -26,20 +26,23 @@
 //     return local;
 // }
 
-class Catalog {
-    constructor(url) {
-        this.container = null;
+// 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json'
+
+export default class Catalog {
+    constructor(container, url, basket) {
         this.items = [];
-        this.basket = null;
+        this.container = document.querySelector(container);
+        this.basket = basket;
         this.url = url;
+        this._init();
     }
     // container: null,
     // items: [],
     // basket: null,
     // url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
-    init(basket) {
-        this.container = document.querySelector('#catalog');
-        this.basket = basket;
+    _init() {
+        // this.container = document.querySelector('#catalog');
+        // this.basket = basket;
         this._get(this.url)
             .then(arr => {
                 this.items = arr;
@@ -116,5 +119,5 @@ class Catalog {
 
 // catalog.init();
 
-let urlCatalog = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json';
-export let catalog = new Catalog(urlCatalog);
+// let urlCatalog = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json';
+// export let catalog = new Catalog(urlCatalog);
