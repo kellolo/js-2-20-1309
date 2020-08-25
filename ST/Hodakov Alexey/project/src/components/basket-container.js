@@ -1,8 +1,8 @@
 import List from "./list.js";
 
 export default class Basket extends List {
-  constructor(container, url, obj) {
-    super(container, url, obj);
+  constructor(container, url) {
+    super(container, url);
     this.containerItems = document.querySelector("#basket-items");
     this.shown = false;
   }

@@ -12,7 +12,7 @@ export default class List {
   _init() {
     this._get(this.url)
       .then((obj) => {
-        if (obj.hasOwnProperty("totalPrice")) {
+        if (obj.hasOwnProperty("content")) {
           this.items = obj.content;
         } else {
           this.items = obj;
