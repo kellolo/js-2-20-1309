@@ -1,3 +1,5 @@
+import BasketItem from './basketItem.js';
+
 export default class Basket {
     constructor(container, url) {
         this.items = [];
@@ -31,29 +33,7 @@ export default class Basket {
         let htmlStr = '';
         this.items.forEach(item => {
         // this.items.forEach(function (item) {
-            htmlStr += `
-            <div class="d-flex headerCartWrapIn mb-1 p-2">
-                    <img src="${item.productImg}" alt="" width="85" height="100>
-                    <div>
-                        <div>${item.productName}</div>
-                        <span>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </span>
-                        <div class="headerCartWrapPrice">${item.amount} 
-                            <span>x</span> $${item.productPrice}
-                        </div>
-
-                <button 
-                    class="fas fa-times-circle" 
-                    data-id="${item.productId}"
-                    name="remove"
-                ></button>
-            </div>
-            `
+            htmlStr += new BasketItem(item).render();
         });
         this.containerItems.innerHTML = htmlStr;
     }
