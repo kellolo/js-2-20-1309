@@ -912,7 +912,7 @@
 /*-------------------------------FETURED END-----------------------------*/
 /*-------------------------------OFFER FOR WOMEN ST-----------------------------*/
 .offerWomenLeft {
-  background: url('../../assets/imgs/offerForWomen.jpg');
+  /* background: url('../../assets/imgs/offerForWomen.jpg'); */
   flex-shrink: 0;
   background-size: cover;
 }
