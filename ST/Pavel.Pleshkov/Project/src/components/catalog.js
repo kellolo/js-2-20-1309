@@ -33,8 +33,8 @@ export default class Catalog {
     constructor(container, url, basket) {
         this.items = [];
         this.container = document.querySelector(container);
-        this.basket = basket;
         this.url = url;
+        this.basket = basket;
         this._init();
     }
     // container: null,

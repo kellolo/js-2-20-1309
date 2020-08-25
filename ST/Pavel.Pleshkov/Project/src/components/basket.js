@@ -4,9 +4,9 @@ export default class Basket {
     constructor(container, url) {
         this.items = [];
         this.container = document.querySelector(container);
+        this.url = url;
         this.containerItems = document.querySelector('#basket-items');
         this.shown = false;
-        this.url = url;
         this._init();
     }
     // items: [],
