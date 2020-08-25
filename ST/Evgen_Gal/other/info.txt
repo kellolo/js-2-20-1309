@@ -1,3 +1,5 @@
+Структурировать всё ниже
+
 0) процедуры ниже проводим после того как скачали проект с github
 1) install NodeJS from https://nodejs.org/en/ (left button)
 2) create folder (use folder ST/yourName/Project)
@@ -54,6 +56,7 @@ $$ npm i -D webpack-dev-server
 
 
 
+
 // в webpack require("") это импорт
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // для самокопирования изо в dist
@@ -94,6 +97,5 @@ module.exports = {
     new HtmlWebpackPlugin({ template: "./public" }),
   ],
 };
-
 
 
