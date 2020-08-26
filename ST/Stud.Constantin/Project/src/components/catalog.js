@@ -1,11 +1,9 @@
 import CatalogItem from './catalogItem.js';
-export default class Catalog{
+import Parentcb from './parentcb.js';
+export default class Catalog extends Parentcb{
     constructor(container,url,basket){
-        this.items=[];
-        this.container=document.querySelector(container);
-        this.url=url;
-        this.basket=basket;
-        this._init();
+      super(container,url,basket);
+        
 
     }
     _init() {

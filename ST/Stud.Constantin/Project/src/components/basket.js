@@ -1,13 +1,11 @@
-import BasketItem from './basketitem.js'
-export default class Basket{   
+import BasketItem from './basketitem.js';
+import Parentcb from './parentcb.js';
+export default class Basket extends Parentcb{   
     constructor(container,url){
-        this.items=[];
-        this.container=document.querySelector(container);
+       super(container,url,basket);
         this.containerItems = document.querySelector('#basket-items');
         this.shown=false;
-        this.url=url;
-        this.basket=basket;
-        this._init();
+      
     }
     _init() {
         this.container = document.querySelector('#basket');
