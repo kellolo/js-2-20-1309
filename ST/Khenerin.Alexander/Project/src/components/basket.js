@@ -1,10 +1,16 @@
-export let basket = {
-    items: [],
-    container: null,
-    containerItems: null,
-    shown: false,
-    url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
-    init() {
+import BasketItem from './basketItem.js';
+export default class Basket {
+    constructor(container, url) {
+        this.items = [];
+        this.container = document.querySelector(container);
+        this.containerItems = document.querySelector('#basket-items');
+        this.shown = false;
+        this.url = url;
+        this.basket = basket;
+        this._init();
+
+    }
+       _init() {
         this.container = document.querySelector('#basket');
         this.containerItems = document.querySelector('#basket-items');
         this._get(this.url)
@@ -15,10 +21,10 @@ export let basket = {
                 this._render();
                 this._handleActions();
             })
-    },
+    }
     _get(url) {
         return fetch(url).then(d => d.json());
-    },
+    }
     _render() {
         let htmlStr = '';
         this.items.forEach(item => {
@@ -48,7 +54,7 @@ export let basket = {
             `
         });
         this.containerItems.innerHTML = htmlStr;
-    },
+    }
     _handleActions() {
         document.querySelector('#basket-toggler').addEventListener('click', () => {
             this.container.classList.toggle('invisible');
@@ -61,7 +67,7 @@ export let basket = {
                 this._remove(ev.target.dataset.id);
             }
         })
-    },
+    }
     add(item) {
         let find = this.items.find(el => el.productId == item.productId);
         if (find) {
@@ -70,7 +76,7 @@ export let basket = {
             this.items.push(item);
         }
         this._render();
-    },
+    }
     _remove(id) {
         let find = this.items.find(el => el.productId == id);
         if (find.amount > 1) {
