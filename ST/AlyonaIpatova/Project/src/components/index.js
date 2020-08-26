@@ -1,7 +1,10 @@
-import { basket } from './basket';
-import { catalog } from './catalog';
+import Basket from './basket';
+import Catalog from './catalog';
 
 export default () => {
-    basket.init();
-    catalog.init(basket);
+    let urlBasket = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json';
+    let urlCatalog = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json';
+
+    let basket = new Basket ('#basket', urlBasket);
+    let catalog = new Catalog ('#catalog', basket, urlCatalog)
 }
