@@ -1,0 +1,35 @@
+body{
+    width: 1440px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0%;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    margin: 5% 5% 0 0;
+}
+.product-pic{
+    height: 200px;
+    width: 200px;
+}
+span{
+    text-align: center;
+}
+.main-menu,.toppings-menu,.supplements-menu{
+    display: flex;
+}
+.toppings-menu,.supplements-menu{
+    display: none;
+}
+.calculate{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
