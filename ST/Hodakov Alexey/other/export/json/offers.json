@@ -11,7 +11,7 @@
         "offerName": "pizza",
         "offerNameRu": "ПИЦЦА",
         "price": "300",
-        "imgOffer" : ".https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/img/pizza-main.jpg",
+        "imgOffer" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/img/pizza-main.jpg",
         "imgProduct" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/img/pizza-constructor.jpg",
         "extraUrl" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/json/offer-pizza.json"
     }
