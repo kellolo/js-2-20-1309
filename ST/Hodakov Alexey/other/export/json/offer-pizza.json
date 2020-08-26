@@ -1,0 +1,17 @@
+[
+    {
+        "exName" : "mozzarella",
+        "exPrice": "40",
+        "exNameRu": "моцарелла"
+    },
+    {
+        "exName" : "basil",
+        "exPrice": "30",
+        "exNameRu": "базилик"
+    },
+    {
+        "exName" : "jalapeno",
+        "exPrice": "60",
+        "exNameRu": "халапеньо"
+    }
+]
