@@ -1,11 +1,11 @@
-export default class Basket {
+import BasketItem from './basketItem.js';
+import Parentbc from './parentbc.js';
+
+export default class Basket extends Parentbc {
     constructor(container, url) {
-        this.items = [];
-        this.container = document.querySelector(container);
+        super(container, url, basket);
         this.containerItems = document.querySelector('#basket-items');
         this.shown = false;
-        this.url = url;
-        this._init();
 }
     
     _init() {
@@ -26,29 +26,7 @@ export default class Basket {
     _render() {
         let htmlStr = '';
         this.items.forEach(item => {
-            htmlStr += `
-            <div class="d-flex headerCartWrapIn mb-1 p-2">
-                    <img src="${item.productImg}" alt="" width="85" height="100>
-                    <div>
-                        <div>${item.productName}</div>
-                        <span>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </span>
-                        <div class="headerCartWrapPrice">${item.amount} 
-                            <span>x</span> $${item.productPrice}
-                        </div>
-
-                <button 
-                    class="fas fa-times-circle" 
-                    data-id="${item.productId}"
-                    name="remove"
-                ></button>
-            </div>
-            `
+            htmlStr += new BasketItem(item).render();
         });
         this.container.innerHTML = htmlStr;
     }
