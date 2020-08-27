@@ -1,10 +1,10 @@
 {
-  "name": "project",
+  "name": "hodakovproject",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "built": "webpack --mode development",
+    "build": "webpack --mode development",
     "dev": "webpack-dev-server"
   },
   "keywords": [],
@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "copy-webpack-plugin": "^6.0.3",
-    "css-loader": "^4.2.1",
+    "css-loader": "^4.2.2",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.10.0",
@@ -21,7 +21,6 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1"
   }
