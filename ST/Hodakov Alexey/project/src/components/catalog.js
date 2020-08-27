@@ -1,7 +1,7 @@
 // const imgURL = 'https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/';
 // let NAMES = [
-//     'MANGO PEOPLE T-SHIRT', 
-//     'BANANA PEOPLE T-SHIRT', 
+//     'MANGO PEOPLE T-SHIRT',
+//     'BANANA PEOPLE T-SHIRT',
 //     'STRAWBERRY PEOPLE T-SHIRT',
 //     'ORANGE PEOPLE T-SHIRT',
 //     'PUMKIN PEOPLE T-SHIRT',
@@ -26,33 +26,37 @@
 //     return local;
 // }
 
-let catalog = {
-    container: null,
-    items: [],
-    basket: null,
-    url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
-    init() {
-        this.container = document.querySelector('#catalog');
-        this.basket = basket;
-        this._get(this.url)
-            .then(arr => {
-                this.items = arr;
-            })
-            .finally(() => {
-                this._render();
-                this._handleActions();
-            })
-    },
-    _get(url) {
-        return fetch(url).then(d => d.json());
-    },
-    _fillCatalog() { //Инкапсуляция (условная для JS)
-        this.items = getArrayOfObjects();
-    },
-    _render() {
-        let htmlStr = '';
-        this.items.forEach(item => {
-            htmlStr += `<div class="col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 feturedItems ">
+export class Catalog {
+  constructor() {
+    this.container = document.querySelector("#catalog");
+    this.items = [];
+    this.basket = null;
+    this.url =
+      "https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json";
+  }
+  init(basket) {
+    this.basket = basket;
+    console.log(basket);
+    this._get(this.url)
+      .then((arr) => {
+        this.items = arr;
+      })
+      .finally(() => {
+        this._render();
+        this._handleActions();
+      });
+  }
+  _get(url) {
+    return fetch(url).then((d) => d.json());
+  }
+  _fillCatalog() {
+    //Инкапсуляция (условная для JS)
+    this.items = getArrayOfObjects();
+  }
+  _render() {
+    let htmlStr = "";
+    this.items.forEach((item) => {
+      htmlStr += `<div class="col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 feturedItems ">
                             <div class="feturedItem">
                                 <div class="feturedImgWrap">
                                     <div class="feturedBuy">
@@ -85,27 +89,25 @@ let catalog = {
                                     </div>
                                 </div>
                             </div>
-                        </div>`
-        });
-        this.container.innerHTML = htmlStr;
-    },
-    _handleActions() {
-        this.container.addEventListener('click', ev => {
-            if (ev.target.name == 'add') {
-                let dataset = ev.target.dataset;
-                this.basket.add(this._createNewItem(dataset));
-            }
-        })
-    },
-    _createNewItem(dataset) {
-        return {
-            productId: dataset.id,
-            productName: dataset.name,
-            productImg: dataset.img,
-            productPrice: +dataset.price,
-            amount: 1
-        }
-    }
+                        </div>`;
+    });
+    this.container.innerHTML = htmlStr;
+  }
+  _handleActions() {
+    this.container.addEventListener("click", (ev) => {
+      if (ev.target.name == "add") {
+        let dataset = ev.target.dataset;
+        this.basket.add(this._createNewItem(dataset));
+      }
+    });
+  }
+  _createNewItem(dataset) {
+    return {
+      productId: dataset.id,
+      productName: dataset.name,
+      productImg: dataset.img,
+      productPrice: +dataset.price,
+      amount: 1,
+    };
+  }
 }
-
-catalog.init();
