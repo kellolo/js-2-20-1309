@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "built": "webpack --mode development",
-    "dev":  "webpack-dev-server"
+    "dev": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",

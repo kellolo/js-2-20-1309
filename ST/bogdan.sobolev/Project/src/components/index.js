@@ -1,18 +1,12 @@
-// import{ basket } from './basket';
-// import{ catalog } from './catalog';
 
-// export default () => {
-//     basket.init();
-//     catalog.init(basket);
-// }
-
-import{ Basket } from './Basket';
-import{ Catalog } from './Catalog';
+import Basket from './basket';
+import Catalog from './catalog';
 
 export default () => {
-    const basket = new Basket();
-    const catalog = new Catalog();
+    let catalogUrl = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json';
+    let basketUrl = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json';
 
-    basket.init();
-    catalog.init(basket);
+    let basket = new Basket('#basket', basketUrl);
+    let catalog = new Catalog('#catalog', catalogUrl, basket);
+
 }

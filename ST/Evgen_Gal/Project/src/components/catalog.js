@@ -26,17 +26,15 @@
 //     return local;
 // }
 
-export class Catalog {
-  constructor() {
-    this.container = document.querySelector("#catalog");
-    this.items = [];
-    this.basket = null;
-    this.url =
-      "https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json";
-  }
+export let catalog = {
+  container: null,
+  items: [],
+  basket: null,
+  url:
+    "https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json",
   init(basket) {
+    this.container = document.querySelector("#catalog");
     this.basket = basket;
-    console.log(basket);
     this._get(this.url)
       .then((arr) => {
         this.items = arr;
@@ -45,14 +43,14 @@ export class Catalog {
         this._render();
         this._handleActions();
       });
-  }
+  },
   _get(url) {
     return fetch(url).then((d) => d.json());
-  }
+  },
   _fillCatalog() {
     //Инкапсуляция (условная для JS)
     this.items = getArrayOfObjects();
-  }
+  },
   _render() {
     let htmlStr = "";
     this.items.forEach((item) => {
@@ -92,7 +90,7 @@ export class Catalog {
                         </div>`;
     });
     this.container.innerHTML = htmlStr;
-  }
+  },
   _handleActions() {
     this.container.addEventListener("click", (ev) => {
       if (ev.target.name == "add") {
@@ -100,7 +98,7 @@ export class Catalog {
         this.basket.add(this._createNewItem(dataset));
       }
     });
-  }
+  },
   _createNewItem(dataset) {
     return {
       productId: dataset.id,
@@ -109,5 +107,5 @@ export class Catalog {
       productPrice: +dataset.price,
       amount: 1,
     };
-  }
-}
+  },
+};

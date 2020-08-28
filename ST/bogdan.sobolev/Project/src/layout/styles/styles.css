@@ -33,10 +33,6 @@
 .invisible {
   display: none !important;
 }
-#basket {
-  /* background: #fff !important;
-  padding: 10px; */
-}
 #basket-toggler {
   width: 50px;
   height: 35px;
