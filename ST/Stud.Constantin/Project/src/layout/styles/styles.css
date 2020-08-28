@@ -346,7 +346,10 @@
     text-transform: uppercase;
     border: 1px solid #eaeaea;
     background-color: #ffffff; }
-
+ .fa-times-circle{
+   min-height: 100px;
+   
+ }
 /*-------------------------------SUBSCRIBE ST-----------------------------*/
 .subscribeBg {
   background: url(../../assets/imgs/SubscribbeBG.jpg) no-repeat center center, #ccc;

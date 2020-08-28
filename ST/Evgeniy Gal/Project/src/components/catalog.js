@@ -1,11 +1,37 @@
-export class Catalog {
-    constructor(){
-        this.container = null;
-        this.items = [];
-        this.basket = null;
-        this.url = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json';
-    };
-       init(basket) {
+// const imgURL = 'https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/';
+// let NAMES = [
+//     'MANGO PEOPLE T-SHIRT', 
+//     'BANANA PEOPLE T-SHIRT', 
+//     'STRAWBERRY PEOPLE T-SHIRT',
+//     'ORANGE PEOPLE T-SHIRT',
+//     'PUMKIN PEOPLE T-SHIRT',
+//     'PINEAPPLE PEOPLE T-SHIRT',
+//     'CUCUMBER PEOPLE T-SHIRT',
+//     'TOMATO PEOPLE T-SHIRT'
+// ];
+// let PRICES = [52, 53, 55, 67, 69, 94, 23, 45];
+
+// function getArrayOfObjects() {
+//     let local = [];
+
+//     for (let i = 0; i < NAMES.length; i++) {
+//         local.push({
+//             productName: NAMES[i],
+//             productPrice: PRICES[i],
+//             productImg: `${imgURL}featuredItem${i + 1}.jpg`,
+//             productId: 'prod_' + i
+//             //rates (звезды)
+//         })
+//     }
+//     return local;
+// }
+
+let catalog = {
+    container: null,
+    items: [],
+    basket: null,
+    url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
+    init() {
         this.container = document.querySelector('#catalog');
         this.basket = basket;
         this._get(this.url)
@@ -16,13 +42,13 @@ export class Catalog {
                 this._render();
                 this._handleActions();
             })
-    };
+    },
     _get(url) {
         return fetch(url).then(d => d.json());
-    };
+    },
     _fillCatalog() { //Инкапсуляция (условная для JS)
         this.items = getArrayOfObjects();
-    };
+    },
     _render() {
         let htmlStr = '';
         this.items.forEach(item => {
@@ -62,7 +88,7 @@ export class Catalog {
                         </div>`
         });
         this.container.innerHTML = htmlStr;
-    };
+    },
     _handleActions() {
         this.container.addEventListener('click', ev => {
             if (ev.target.name == 'add') {
@@ -70,7 +96,7 @@ export class Catalog {
                 this.basket.add(this._createNewItem(dataset));
             }
         })
-    };
+    },
     _createNewItem(dataset) {
         return {
             productId: dataset.id,
@@ -79,5 +105,7 @@ export class Catalog {
             productPrice: +dataset.price,
             amount: 1
         }
-    };
-};
+    }
+}
+
+catalog.init();
