@@ -1,7 +1,32 @@
 import List from "./list.js";
 
-export default class Basket extends List {
-  constructor(container, url) {
+export class Catalog extends List {
+  constructor(basket, container = "#catalog", url = "/catalog.json") {
+    super(container, url);
+    this.basket = basket;
+  }
+
+  _handleActions() {
+    this.container.addEventListener("click", (ev) => {
+      if (ev.target.name == "add") {
+        let dataset = ev.target.dataset;
+        this.basket.add(this._createNewItem(dataset));
+      }
+    });
+  }
+  _createNewItem(dataset) {
+    return {
+      productId: dataset.id,
+      productName: dataset.name,
+      productImg: dataset.img, 
+      productPrice: +dataset.price,
+      amount: 1,
+    };
+  }
+}
+
+export class Basket extends List {
+  constructor(container = "#basket", url = "/basket.json") {
     super(container, url);
     this.containerItems = document.querySelector("#basket-items");
     this.shown = false;
