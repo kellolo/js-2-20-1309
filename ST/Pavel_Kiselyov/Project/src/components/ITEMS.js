@@ -1,10 +1,12 @@
-import CatalogItem from "./catalogItem";
+import Item from './Item.js';
 
-export default class BasketItem extends CatalogItem{
-    constructor(item){
-        super(item,render());
+export class CatalogItem extends Item {}
+
+export class BasketItem extends Item {
+    constructor(item) {
+        super(item);
     }
-    render(){
+    render() {
         return `
         <div class="d-flex headerCartWrapIn mb-1 p-2">
                 <img src="${this.item.productImg}" alt="" width="85" height="100>
@@ -30,3 +32,4 @@ export default class BasketItem extends CatalogItem{
         `
     }
 }
+
