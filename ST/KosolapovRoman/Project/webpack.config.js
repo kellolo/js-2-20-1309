@@ -1,10 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-module.exports = {
-    output: {
-        filename: 'js/bundle.js'
+module.exports = { 
+  entry: './src/main.js', 
+    output: { 
+    filename: 'js/bundle.js' 
     },
     module: {
         rules: [
@@ -20,7 +20,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'css/[name].css',
+            filename: '[name].css',
             chunkFilename: '[id].css'
         }),
         new CopyWebpackPlugin({

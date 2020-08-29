@@ -1,20 +1,16 @@
 {
-  "name": "2",
+  "name": "Project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack ",
     "dev": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^4.5.2",
-    "jquery": "^3.5.1",
-    "popper.js": "^1.16.1"
-  },
   "devDependencies": {
     "copy-webpack-plugin": "^6.0.3",
     "css-loader": "^4.2.1",
@@ -24,5 +20,10 @@
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
   }
 }
