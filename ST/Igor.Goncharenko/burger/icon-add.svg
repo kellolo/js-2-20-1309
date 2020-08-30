@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="47.96" height="47.96" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <style>.cls-1{fill:#ff0000;}.cls-2{fill:#fff;}</style>
+ </defs>
+ <title>icon-add</title>
+ <g>
+  <title>Layer 1</title>
+  <circle class="cls-1" cx="23.98" cy="23.98" r="23.98" id="svg_1"/>
+  <path class="cls-2" d="m14.14001,22.84999l7.58,0l0,-7.58l3.52,0l0,7.59l7.58,0l0,3.51l-7.58,0l0,7.59l-3.52,0l0,-7.59l-7.58,0l0,-3.52z" id="svg_2"/>
+ </g>
+</svg>

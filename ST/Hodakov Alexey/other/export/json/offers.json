@@ -1,0 +1,18 @@
+[
+    {
+        "offerName": "burger",
+        "offerNameRu": "БУРГЕР",
+        "price": "200",
+        "imgOffer" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/img/burger-main.jpg",
+        "imgProduct" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/img/burger-constructor.jpg",
+        "extraUrl" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/json/offer-burger.json"
+    },
+    {
+        "offerName": "pizza",
+        "offerNameRu": "ПИЦЦА",
+        "price": "300",
+        "imgOffer" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/img/pizza-main.jpg",
+        "imgProduct" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/img/pizza-constructor.jpg",
+        "extraUrl" : "https://raw.githubusercontent.com/AHodakov/js-2-20-1309/hodakov-lesson3/ST/Hodakov%20Alexey/other/export/json/offer-pizza.json"
+    }
+]
