@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 40%;
+            margin: 0 auto
+        }
+
+        .catalog-item {
+            border-radius: 5px;
+            border: 2px solid grey;
+            padding: 15px;
+            margin-bottom: 10px;
+            width: 150px
+        }
+
+        .footer {
+            text-align: right
+        }
+
+        .font-it {
+            font-style: italic
+        }
+
+        .red {
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        filter <input type="text" v-model.lazy="filter"> <button @click.prevent="filterCatalog">Find</button>
+
+        <br>
+
+        <button @click="show = !show">{{ btnText }} catalog</button>
+        <div class="container qqq" v-if="show">
+            <div class="catalog-item" v-for="item of filteredCatalogItems">
+                <img :src="item.productImg" alt="" width="80px" height="100px">
+                <hr>
+                <strong>{{ item.productName }}</strong>
+                <p>${{ item.productPrice }}</p>
+                <button @click="buy(item)">Buy</button>
+            </div>
+        </div>
+        <div class="container www" v-else>
+            <h1>Catalog is not avaliable</h1>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                //внутрикомпонентные реактивные данные // state (React)
+                filter: '',
+                filteredCatalogItems: [],
+                catalogItems: [],
+                catalogUrl: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
+                show: true
+                // basketItems: [],
+            },
+            methods: {
+                //методы компонента
+                get(url) {
+                    return fetch(url).then(d => d.json())
+                },
+                filterCatalog() {
+                    this.filteredCatalogItems = this.catalogItems.filter(el => el.productName.match(new RegExp(this.filter, 'i')))
+                },
+                buy(item) {
+                    console.log('Buy: ', item.productName);
+                }
+            },
+            computed: {
+                //вычисляемые свойства компонента
+                btnText() {
+                    return this.show ? 'Hide' : 'Show'
+                }
+            },
+            watch: {
+                // вотчеры
+                filter() {
+                    this.filteredCatalogItems = this.catalogItems.filter(el => el.productName.match(new RegExp(this.filter, 'i')))
+                }
+            },
+            // ХУКИ - события жизненного цикла компонента
+            mounted() {
+                this.get(this.catalogUrl)
+                .then(items => { 
+                    this.catalogItems = items;
+                    this.filteredCatalogItems = items;
+                })
+                //самый используемый
+            },
+        });
+    </script>
+</body>
+</html>

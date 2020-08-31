@@ -1,10 +1,6 @@
-import { Basket } from "./basket";
-import { Catalog } from "./catalog";
+import { Basket, Catalog } from "./LISTS.js";
 
 export default () => {
-  const userBasket = new Basket();
-  const userCatalog = new Catalog();
-
-  userBasket.init();
-  userCatalog.init(userBasket);
+  let userBasket = new Basket();
+  let userCatalog = new Catalog(userBasket);
 };

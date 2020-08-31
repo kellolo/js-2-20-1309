@@ -17,8 +17,12 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                     outputPath: 'img',
+                },
             },
-            }
+            {
+                test: /\r.html$/i,
+                loader: 'html-loader',
+            },
         ]
     },
     plugins: [
@@ -32,7 +36,7 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
-            template: './public/index.html'
+            template: './public/index.html',
         })
     ]
 }
