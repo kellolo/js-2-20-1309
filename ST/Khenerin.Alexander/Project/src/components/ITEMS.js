@@ -1,9 +1,11 @@
-export default class BasketItem {
-    constructor(item) {
-        this.item = item;
-    }
-    render() {
-        return `
+import Item from "./Item";
+ export class CatalogItem extends Item {}
+ export class BasketItem extends Item {
+     constructor(item) {
+         super(item);
+             }
+     render() {
+         return `
         <div class="d-flex headerCartWrapIn mb-1 p-2">
                 <img src="${this.item.productImg}" alt="" width="85" height="100>
                 <div>
@@ -25,5 +27,5 @@ export default class BasketItem {
             ></button>
         </div>
         `
-    }
-}
+     }
+ }
