@@ -1,22 +1,23 @@
-import BasketItem from "./basket-component-catalogItem.js";
-import CatalogItem from "./catalog-component-catalogItem.js";
+import { CatalogItem, BasketItem } from "./ITEMS.js";
+
+let classes = {
+  Catalog: CatalogItem,
+  Basket: BasketItem,
+};
 
 export default class List {
-  constructor(container, url, obj) {
+  constructor(container, url) {
     this.container = document.querySelector(container);
     this.items = [];
-    this.obj = obj;
     this.url = url;
     this._init();
   }
   _init() {
-    this._get(this.url)
-      .then((obj) => {
-        if (obj.hasOwnProperty("content")) {
-          this.items = obj.content;
-        } else {
-          this.items = obj;
-        }
+    let url =
+      "https://raw.githubusercontent.com/kellolo/static/master/JSON" + this.url;
+    this._get(url)
+      .then((data) => {
+        this.items = this.basket ? data : data.content;
       })
       .finally(() => {
         this.render();
@@ -29,11 +30,7 @@ export default class List {
   render() {
     let htmlStr = "";
     this.items.forEach((item) => {
-      if (item.hasOwnProperty("amount")) {
-        htmlStr += new BasketItem(item).render();
-      } else {
-        htmlStr += new CatalogItem(item).render();
-      }
+      htmlStr += new classes[this.constructor.name](item).render();
     });
     this.container.innerHTML = htmlStr;
   }

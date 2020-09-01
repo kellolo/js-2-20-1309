@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate</title>
+</head>
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <span>Имя</span>
+    <input type="text" class="name">
+    <span class="name-hint" style="margin-bottom: 1%; color:red; display: none;">Имя должно содержать только буквы и не должно быть пустым</span>
+    <span>Телефон</span>
+    <input type="text" class="phone">
+    <span class="phone-hint" style="margin-bottom: 1%; color: red; display: none;">Телефон должен быть формата +7(000)000-0000 и не должен быть пустым</span>
+    <span>Email</span>
+    <input type="text" class="email">
+    <span class="email-hint email" style="margin-bottom: 1%; color: red; display: none;">Email должен быть формата mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru и не должен быть пустым</span>
+    <span>Комментарий</span>
+    <textarea name="comment" id="" cols="30" rows="10" class="comment" style="margin-bottom: 1%;"></textarea>
+    <button class="button">Отправить</button>
+    <script src="validate.js"></script>
+</body>
+</html>
