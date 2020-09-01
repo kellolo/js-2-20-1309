@@ -40,7 +40,7 @@
 #basket-toggler {
   width: 50px;
   height: 35px;
-  background-image: url('../../assets/imgs/cart.png');
+  background-image: url(../../assets/imgs/cart.png);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -273,7 +273,7 @@
     z-index: 2; } */
   .headerCart .headerCartWrap {
     position: absolute;
-    width: 260px;
+    width: 335px;
     left: -40px;
  }
     @media (max-width: 650px) {
@@ -539,7 +539,7 @@
 .topBannerContent {
   display: flex;
   height: 610px;
-  background: url("../../assets/imgs/topHeaderBack.png") no-repeat;
+  background: url(../../assets/imgs/topHeaderBack.png) no-repeat;
   background-size: 550px;
   background-position: 93% 0%;
   align-items: center; }
@@ -702,7 +702,7 @@
 /*-------------------------------FETURED END-----------------------------*/
 /*-------------------------------OFFER FOR WOMEN ST-----------------------------*/
 .offerWomenLeft {
-  background: url("../../assets/imgs/offerForWomen.jpg");
+  background: url(https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/slide1.jpg);
   flex-shrink: 0;
   background-size: cover; }
   @media (max-width: 992px) {
@@ -878,7 +878,7 @@ details[open] summary .fa-caret-up {
       outline: none;
       border: 1px solid #ebebeb;
       -webkit-appearance: none;
-      background: url("../../assets/imgs/caret.jpg") no-repeat;
+      background: url(../../assets/imgs/caret.jpg) no-repeat;
       background-position: 90% 50%;
       padding-left: 0.8rem;
       padding-right: 2rem;
@@ -1192,7 +1192,7 @@ details[open] summary .fa-caret-up {
     outline: none;
     border: 1px solid #eaeaea;
     -webkit-appearance: none;
-    background: url("../../assets/imgs/caret.jpg") no-repeat;
+    background: url(../../assets/imgs/caret.jpg) no-repeat;
     background-position: 97% 50%;
     width: 355px;
     height: 45px;

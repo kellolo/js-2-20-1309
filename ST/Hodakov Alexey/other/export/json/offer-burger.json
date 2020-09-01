@@ -1,0 +1,20 @@
+[
+    {
+        "exName" : "bacon",
+        "exPrice": "70",
+        "exNameRu": "бекон",
+        "amount" : "0"
+    },
+    {
+        "exName" : "cheese",
+        "exPrice": "50",
+        "exNameRu": "сыр",
+        "amount" : "0"
+    },
+    {
+        "exName" : "jalapeno",
+        "exPrice": "60",
+        "exNameRu": "халапеньо",
+        "amount" : "0"
+    }
+]
