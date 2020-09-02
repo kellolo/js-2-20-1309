@@ -1,0 +1,110 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  margin: 0 auto;
+  width: 900px;
+  height: 100vh;
+  background-color: #879baf;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container h1 {
+  color: #e2f6ff;
+}
+
+.container .start__text {
+  text-align: center;
+  color: #e2f6ff;
+  font-size: 32px;
+}
+
+.container button {
+  border: 1px solid #5e727a;
+  width: 300px;
+  background-color: #87a3af;
+  color: #e2f6ff;
+  font-size: 25px;
+  height: 50px;
+  outline: none;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+  border-radius: 15px;
+}
+
+.container button:hover {
+  background-color: #5e727a;
+  color: #f0fbff;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.container button:hover:active {
+  background-color: #87a3af;
+  color: #e2f6ff;
+}
+
+.container .form__container {
+  width: 80%;
+  margin-top: 30px;
+}
+
+.container .form__container fieldset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #e2f6ff;
+  border-radius: 20px;
+  border: 1px solid #f0fbff;
+}
+
+.container .form__container textarea {
+  resize: none;
+  margin: auto;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #f0fbff;
+}
+
+.container .form__container button {
+  margin: 15px auto;
+}
+
+.container .form__container input {
+  margin: 5px  auto;
+  height: 40px;
+  width: 200px;
+  border-radius: 15px;
+  outline: none;
+  padding: 0 40px;
+  border: 1px solid #f0fbff;
+  color: #5e727a;
+  font-size: 1em;
+}
+
+.container .form__container #name {
+  text-transform: capitalize;
+}
+
+.container .form__container p {
+  width: 280px;
+  margin: auto;
+  font-size: 10px;
+}
+
+.container .form__container p b {
+  font-size: 15px;
+}
+/*# sourceMappingURL=styles.css.map */
