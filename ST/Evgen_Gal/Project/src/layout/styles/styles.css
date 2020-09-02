@@ -898,7 +898,7 @@
 /*-------------------------------FETURED END-----------------------------*/
 /*-------------------------------OFFER FOR WOMEN ST-----------------------------*/
 .offerWomenLeft {
-	background: url("https://raw.githubusercontent.com/kellolo/static/master/jpg/JS_shop/offer3.jpg");
+	background: url(https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/slide1.jpg);
 	flex-shrink: 0;
 	background-size: cover;
 }
