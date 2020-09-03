@@ -1,4 +1,4 @@
-export default class CatalogItem {
+export default class Item {
     constructor(item) {
         this.item = item;
     }
@@ -38,6 +38,5 @@ export default class CatalogItem {
                 </div>
             </div>
         </div>`
-        
     }
 }

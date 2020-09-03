@@ -1,8 +1,12 @@
-export default class BasletItem {
+import Item from './Item.js';
+
+export class CatalogItem extends Item {}
+
+export class BasketItem extends Item {
     constructor(item) {
-        this.item = item;
+        super(item);
     }
-    renser() {
+    render() {
         return `
         <div class="d-flex headerCartWrapIn mb-1 p-2">
                 <img src="${this.item.productImg}" alt="" width="85" height="100>
