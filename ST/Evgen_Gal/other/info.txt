@@ -1,5 +1,7 @@
 Структурировать всё ниже
 
+команды, наполнение, код для webpack файла, смотреть на сайте webpack
+
 0) процедуры ниже проводим после того как скачали проект с github
 1) install NodeJS from https://nodejs.org/en/ (left button)
 2) create folder (use folder ST/yourName/Project)
