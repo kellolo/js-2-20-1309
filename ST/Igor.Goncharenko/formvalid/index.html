@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formvalid</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <form novalidate>
+        <p>
+            <label for="name">
+                <span>Please enter your name</span>
+                <input type="text" id="name" name="name" placeholder="your name:" />
+                <span class="error"></span>
+            </label>
+
+        </p>
+        <p>
+            <label for="email">
+                <span>Please enter your email</span>
+                <input type="email" id="email" name="email" placeholder="your email:" />
+                <span class="error"></span>
+            </label>
+
+        </p>
+        <p>
+            <label for="tel">
+                <span>Please enter your telefone</span>
+                <input type="tel" id="tel" name="tel" placeholder="your telefone:" />
+                <span class="error"></span>
+            </label>
+
+        </p>
+        <textarea name="yourtext" id="yourtext" cols="32" rows="10"></textarea>
+        <div class="btn-group">
+            <button class=" btnsub btn">Submit</button>
+            <button class="btn" type="reset">Reset</button>
+        </div>
+
+    </form>
+    <script>
+
+        class Validate {
+            constructor(element, elementRegExp, elementMassege, handler, action) {
+                this.element = element;
+                this.elementRegExp = elementRegExp;
+                this.elementMassege = elementMassege;
+                this.handler = handler;
+                this.action = action;
+            }
+            testInput() {
+                this.handler.addEventListener(this.action, (e) => {
+                    event.preventDefault()
+                    if (this.element.value == "" || !this.elementRegExp.test(this.element.value)) {
+                        this.element.className = "invalid";
+                        this.element.nextElementSibling.innerHTML = this.elementMassege;
+                        this.element.nextElementSibling.className = "error active";
+                    }
+                    else {
+                        this.element.className = "valid";
+                        this.element.nextElementSibling.innerHTML = "";
+                        this.element.nextElementSibling.className = "error";
+                    }
+                })
+
+            }
+
+
+        };
+
+
+        //   /^\d[\d\(\)\ -]{4,14}\d$/
+
+        const emailRegExp = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
+        const nameRegExp = /^[a-zA-Zа-яёА-ЯЁ]+$/u
+        const telRegExp = /^\d[\d\(\)\ -]{4,14}\d$/;
+        const emailMassege = 'Pleace enter valid email!'
+        const nameMassege = 'Your name';
+        const telMassege = 'tel: 8 *** ***-**-**'
+        const email = document.querySelector('#email');
+        const name = document.querySelector('#name');
+        const tel = document.querySelector('#tel');
+        const button = document.querySelector('.btnsub');
+        const input = 'input'
+        const click = 'click'
+
+
+        const emailValide = new Validate(email, emailRegExp, emailMassege, email, input);
+        const nameValide = new Validate(name, nameRegExp, nameMassege, name, input);
+        const telValide = new Validate(tel, telRegExp, telMassege, tel, input);
+        const emaiSubmint = new Validate(email, emailRegExp, emailMassege, button, click);
+        const nameSubmint = new Validate(name, nameRegExp, nameMassege, button, click);
+        const telSubmint = new Validate(tel, telRegExp, telMassege, button, click);
+        emailValide.testInput();
+        nameValide.testInput();
+        telValide.testInput();
+        emaiSubmint.testInput();
+        nameSubmint.testInput();
+        telSubmint.testInput();
+    </script>
+</body>
+
+</html>
