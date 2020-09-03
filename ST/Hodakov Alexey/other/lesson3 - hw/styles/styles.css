@@ -10,6 +10,7 @@ body {
 
 header {
   width: 80%;
+  max-width: 1050px;
   margin: 0 auto;
   background-color: #1f2223;
   height: 100px;
@@ -32,6 +33,7 @@ header span {
 
 main {
   width: 80%;
+  max-width: 1050px;
   margin: 0 auto;
   background-color: #2c2f32;
   height: calc(100vh - 200px);
@@ -234,6 +236,7 @@ main {
 
 footer {
   width: 80%;
+  max-width: 1050px;
   margin: 0 auto;
   background-color: #322f2c;
   min-height: 100px;
@@ -247,5 +250,9 @@ footer p {
 
 footer span {
   margin: 0 15px;
+}
+
+footer .ex {
+  font-size: 10px;
 }
 /*# sourceMappingURL=styles.css.map */
