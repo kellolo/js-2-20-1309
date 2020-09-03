@@ -1,0 +1,64 @@
+body {
+    margin: 0 auto;
+    padding: 0px;
+    font-style: sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 50px;
+    text-align: center;
+}
+
+head {
+    background-color:white;
+}
+
+h1 {
+    color: #445060;
+}
+
+main {
+    margin: 0px 60px;
+    background-color:#445060;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column!important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+fieldset {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column!important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+legend {
+    color: white;
+}
+
+button {
+    margin: 0 auto;
+    background-color: white;
+    color: #445060;
+    width: 150px;
+    height: 40px;
+}
+
+footer {
+    background-color: white;
+    color: #445060;
+}
