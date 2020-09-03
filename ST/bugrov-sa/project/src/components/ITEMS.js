@@ -1,6 +1,12 @@
-export default class BasketItem {
+import Item from './Item.js'
+
+export class CatalogItem extends Item {
+
+}
+
+export class BasketItem extends Item {
     constructor (item) {
-        this.item = item;
+        super(item);
     }
 
     render() {
