@@ -1,0 +1,103 @@
+Структурировать всё ниже
+
+команды, наполнение, код для webpack файла, смотреть на сайте webpack
+
+0) процедуры ниже проводим после того как скачали проект с github
+1) install NodeJS from https://nodejs.org/en/ (left button)
+2) create folder (use folder ST/yourName/Project)
+3) use console/bash (ctrl + ` - VSC)
+$$ - команда, набираемая в терминале.
+4) $$  npm init -y (ENTER)
+    появится файл package.json
+5) $$  npm i webpack webpack-cli -D
+    1 - появится package-lock.json
+    2 - появится node_modules
+    3 - в package.json в поле devDependencies появятся записи о установленных пакетах ("webpack" и "webpack-cli" с их версиями)
+6) написать скрипт "build": "webpack" в разделе scripts в файле package.json и сохранить
+7) при отсутствии папки src в папке проекта создать ее
+8) при отсутствии файла src/index.js в папке проекта создать его
+9) $$  npm run build
+    появится папка dist с собранным проектом
+	 для того чтоб исчезло предупреждение в файл package.json, в разделе scripts, после webpack дописываем --mode development. Версия готовая и рабочая
+
+10)перед сдачей ДЗ удалять папки dist и node_modules(исполнительные файлы тех модулей которые мы устанавливаем).
+11) $$  npm install   (равнозначно install - i) // возвращаем исполн. файлы после сдачи ДЗ. 
+
+https://github.com/kellolo/static - ссылка на обший базу данных
+
+  Заливка на общий + начало
+1) по ссылке https://github.com/kellolo/js-2-20-1309 переход на общий репозиторий проекта
+2) Fork (вилка) репозитория
+3) скачать его со своего репозитория
+4) в папке ST, своей под папке с именем, выполнение своей части ДЗ
+5) коммит, push проделоного
+6) в своем репозитории pull request
+7) из своего репозитория заливаем на общий оставляя комент о проделанном. проверяем на наличем только нужного материала
+8) жать create pull request
+
+  Объединение общим (merch?)
+  // синхронизация с общим проетом
+1) в общем pull request - new pull request - compare across forks
+2) установка репозитория с общего на свой
+3) жать create pull request
+4) принимаем у себя
+
+  Перед началом
+$$ npm init -y
+$$ npm i bootstrap jquery popper.js
+основные верстальческие инструменты (устанал. package.json, package-lock.json)
+
+$$ npm i -D webpack webpack-cli html-webpack-plugin css-loader mini-css-extract-plugin 
+сборка JS, html, css файлов
+
+$$ npm i -D webpack-dev-server
+красивая автоперезагрузка проекта
+
+
+
+
+
+
+
+// в webpack require("") это импорт
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// для самокопирования изо в dist
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+// сборка html
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { Template } = require("webpack");
+// в webpack require module.exports = {} это экспорт
+module.exports = {
+  // для сборки файлов в опред место. bundle станд назв для собран js файлам
+  output: {
+    filename: "js/bundle.js",
+  },
+  // "стандарт настр" - разобраться
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+    ],
+  },
+  plugins: [
+    // так же для сборки css передаем объекты с пунктами в качестве настройки
+    new MiniCssExtractPlugin({
+      // для того чтобы все файлы в стилях прердавал в папку dist/css с тем же названием
+      filename: "css/[name].css",
+      // для большого кол-ва файлов
+      chunkFilename: "[id].css",
+    }),
+    // для самокопирования изо в папку dist
+    // $$ npm i -D copy-webpack-plugin
+    new CopyWebpackPlugin({
+      // массив с объектом с указанием `из` чего `к` чему копируем
+      patterns: [{ from: "./src/assets/imgs", to: "img" }],
+    }),
+    // объявляем то что подключили выше. можем не указывать на index.html так как одноименно
+    new HtmlWebpackPlugin({ template: "./public" }),
+  ],
+};
+
+

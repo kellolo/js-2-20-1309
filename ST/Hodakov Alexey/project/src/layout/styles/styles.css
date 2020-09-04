@@ -43,6 +43,9 @@
   background-image: url('../../assets/imgs/cart.png');
   background-repeat: no-repeat;
   background-position: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 .dropdown .btn-lg {
   position: relative;
@@ -275,7 +278,20 @@
     position: absolute;
     width: 260px;
     left: -40px;
- }
+    z-index: 2;
+    border: 1px solid #f16d7f;
+  }
+  .fa-star,.fa-star-half-alt{
+    color: #f16d7f;
+  }
+  .fa-times-circle{
+    color: #f16d7f;
+    background-color: transparent;
+    border: none;
+  }
+  .fa-times-circle:hover {
+    color: #c72d42;
+  }
     @media (max-width: 650px) {
       .headerCart .headerCartWrap {
         left: -120px; } }
@@ -934,7 +950,8 @@ details[open] summary .fa-caret-up {
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: pointer; }
+      cursor: pointer;
+      outline: none; }
       .feturedItem .feturedImgWrap .feturedBuy button div {
         margin-right: 10px; }
       .feturedItem .feturedImgWrap .feturedBuy button i {

@@ -529,78 +529,78 @@
     background-color: #f16d7f;
     color: #ffffff; }
 
-.topBanner {
-  height: 610px;
-  background: #e8e8e8; }
-  @media (max-width: 991.98px) {
     .topBanner {
-      height: auto; } }
-
-.topBannerContent {
-  display: flex;
-  height: 610px;
-  background: url("../../assets/imgs/topHeaderBack.png") no-repeat;
-  background-size: 550px;
-  background-position: 93% 0%;
-  align-items: center; }
-  @media (min-width: 992px) and (max-width: 1199.98px) {
+      height: 610px;
+      background: #e8e8e8; }
+      @media (max-width: 991.98px) {
+        .topBanner {
+          height: auto; } }
+    
     .topBannerContent {
-      background-position: 100% 0%; } }
-  @media (max-width: 991.98px) {
-    .topBannerContent {
-      background: none;
-      height: auto;
-      padding: 5rem 0;
-      margin: auto;
       display: flex;
-      justify-content: center; } }
-  @media (max-width: 767.98px) {
-    .topBannerContent {
-      padding: 2rem 0; } }
-
-.topBannerText1 {
-  color: #222222;
-  font-weight: 900;
-  font-size: 60px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase; }
-  @media (max-width: 767.98px) {
+      height: 610px;
+      background: url("../../assets/imgs/topHeaderBack.png") no-repeat;
+      background-size: 550px;
+      background-position: 93% 0%;
+      align-items: center; }
+      @media (min-width: 992px) and (max-width: 1199.98px) {
+        .topBannerContent {
+          background-position: 100% 0%; } }
+      @media (max-width: 991.98px) {
+        .topBannerContent {
+          background: none;
+          height: auto;
+          padding: 5rem 0;
+          margin: auto;
+          display: flex;
+          justify-content: center; } }
+      @media (max-width: 767.98px) {
+        .topBannerContent {
+          padding: 2rem 0; } }
+    
     .topBannerText1 {
-      font-size: 40px; } }
-
-.topBannerText2 {
-  letter-spacing: 1px;
-  font-size: 40px;
-  font-weight: 900;
-  line-height: 40px;
-  color: #222222;
-  padding-top: 1rem; }
-  @media (max-width: 767.98px) {
+      color: #222222;
+      font-weight: 900;
+      font-size: 60px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase; }
+      @media (max-width: 767.98px) {
+        .topBannerText1 {
+          font-size: 40px; } }
+    
     .topBannerText2 {
-      font-size: 30px;
-      padding-top: 0; } }
-  @media (max-width: 400px) {
-    .topBannerText2 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column; } }
-  .topBannerText2 span {
-    color: #f16d7f; }
-
-.bgText {
-  padding-left: 24px;
-  border-left: 12px solid #f16d7f;
-  line-height: 3rem; }
-  @media (max-width: 991.98px) {
+      letter-spacing: 1px;
+      font-size: 40px;
+      font-weight: 900;
+      line-height: 40px;
+      color: #222222;
+      padding-top: 1rem; }
+      @media (max-width: 767.98px) {
+        .topBannerText2 {
+          font-size: 30px;
+          padding-top: 0; } }
+      @media (max-width: 400px) {
+        .topBannerText2 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column; } }
+      .topBannerText2 span {
+        color: #f16d7f; }
+    
     .bgText {
-      padding: 0;
-      border-left: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center; } }
-  .bgText a {
-    text-decoration: none; }
+      padding-left: 24px;
+      border-left: 12px solid #f16d7f;
+      line-height: 3rem; }
+      @media (max-width: 991.98px) {
+        .bgText {
+          padding: 0;
+          border-left: none;
+          display: flex;
+          flex-direction: column;
+          align-items: center; } }
+      .bgText a {
+        text-decoration: none; }
 
 /*-------------------------------OFFER ST-----------------------------*/
 @media (max-width: 767.98px) {
@@ -702,7 +702,7 @@
 /*-------------------------------FETURED END-----------------------------*/
 /*-------------------------------OFFER FOR WOMEN ST-----------------------------*/
 .offerWomenLeft {
-  background: url("../../assets/imgs/offerForWomen.jpg");
+  background: url("https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/offer3.jpg");
   flex-shrink: 0;
   background-size: cover; }
   @media (max-width: 992px) {

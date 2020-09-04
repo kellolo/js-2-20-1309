@@ -1,6 +1,6 @@
-import {basket} from './basket';
-import {catalog} from './catalog';
-export default()=>{
-    basket.init();
-    catalog.init(basket);
+import { Basket, Catalog } from './LISTS';
+
+export default () => {
+    let basket = new Basket();
+    let catalog = new Catalog(basket);
 }
