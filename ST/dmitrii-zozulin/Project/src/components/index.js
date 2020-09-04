@@ -1,7 +1,7 @@
-import { Basket } from './basket';
-import { Catalog } from './catalog';
+// import { Basket } from './basket';
+// import { Catalog } from './catalog';
 
-export default () => {
-  const basket = new Basket();
-  const catalog = new Catalog(Basket);
-};
+// export default () => {
+//   const basket = new Basket();
+//   const catalog = new Catalog(Basket);
+// };
