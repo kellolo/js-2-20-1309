@@ -1,33 +1,37 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtract = require("mini-css-extract-plugin");
+const CopyWebpack = require("copy-webpack-plugin");
+const HtmlWebpack = require("html-webpack-plugin");
 
 module.exports = {
   output: {
-    filename: 'js/bundle.js'
+    filename: "js/bundle.js",
   },
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      }
-    ]
+        use: [MiniCssExtract.loader, "css-loader"],
+      },
+      {
+        test: /\.(png|jpe?g|svg|gif)$/i,
+        loader: "file-loader",
+        options: {
+          outputPath: "img",
+          publicPath: "../img",
+        },
+      },
+    ],
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-      chunkFilename: '[id].css'
+    new MiniCssExtract({
+      filename: "css/[name].css",
+      chunkFilename: "[id].css",
     }),
-    new CopyWebpackPlugin({
-      patterns:[
-        {from: 'src/assets/imgs', to: 'img'}
-      ]
+    new CopyWebpack({
+      patterns: [{ from: "src/assets/imgs", to: "img" }],
     }),
-    new HtmlWebpackPlugin({
-      template: './public/index.html'
-    })
-
-
-  ]
-}
+    new HtmlWebpack({
+      template: "./public/index.html",
+    }),
+  ],
+};

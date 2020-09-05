@@ -1,7 +1,6 @@
-import { basket } from './basket';
-import { catalog } from './catalog';
+import { Basket, Catalog } from "./LISTS.js";
 
 export default () => {
-  basket.init();
-  catalog.init(basket);
-}
+  let userBasket = new Basket();
+  let userCatalog = new Catalog(userBasket);
+};
