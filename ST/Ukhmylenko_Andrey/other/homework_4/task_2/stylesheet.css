@@ -1,0 +1,50 @@
+.form-item {
+    padding: 20px;
+}
+
+input,
+textarea {
+    outline: none;
+}
+
+.name,
+.email,
+.phone {
+    position: relative;
+}
+
+.matched {
+    border: 3px solid green;
+}
+
+.unmatched {
+    border: 3px solid red;
+}
+
+.unmatched-name::after {
+    width: 700px;
+    color: red;
+    content: 'Имя должно состоят только из букв';
+    position: absolute;
+    top: 0px;
+    left: 285px;
+}
+
+.unmatched-email::after {
+    width: 700px;
+    color: red;
+    content: 'Введите email вида mymail@mail.ru, или my.mail@mail.ru, или my-mail@mail.ru.';
+    position: absolute;
+    top: 0px;
+    left: 285px;
+}
+
+
+.unmatched-phone::after {
+    width: 700px;
+    color: red;
+    content: 'Запишите телефон в следующем виде: +7(000)000-0000';
+    position: absolute;
+    top: 0px;
+    left: 345px;
+}
