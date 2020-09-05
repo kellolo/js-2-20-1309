@@ -15,7 +15,7 @@
 
 </head>
 <body>
-
+<div id="app">
 <!-------------------------------HEADER START----------------------------->
 <header class="container px-0 my-4">
     <div class="row col-12 d-flex px-0 mx-0">
@@ -78,18 +78,45 @@
 
 
             <div class="headerCart pr-4" >
-                <button id="basket-toggler"></button>
+                <button id="basket-toggler" @click="invisible = !invisible"></button>
 
-                <div class="headerCartWrap invisible" id="basket">
+                <div class="headerCartWrap" v-show="invisible" id="basket">
                     <div class="headerCartWrapBlock"></div>
                     <div class="headerCartWrapInAll" >
                         <div id="basket-items" class="headerCartWrapInAll">
-
+                            <!-- ---------------------------------------------------------------- -->
+                            <div 
+                                class="d-flex headerCartWrapIn mb-1 p-2"
+                                v-for="item of basketItems"
+                                :key="item.productId"
+                                >
+                                <img :src="item.productImg" alt="" width="85" height="100">
+                                <div>
+                                    <div>{{item.productName}}</div>
+                                    <span>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </span>
+                                    <div class="headerCartWrapPrice">{{item.amount}}
+                                        <span>x</span> ${{item.productPrice}}
+                                    </div>
+                                </div>
+                                <button 
+                                    class="fas fa-times-circle" 
+                                    name="remove"
+                                    @click="removeBasketItem(item)"
+                                ></button>
+                                
+                            </div>
+                            <!-- ---------------------------------------------------------------- -->
                         </div>
 
                         <div class="headerCartWrapTotalPrice">
                             <div>total</div>
-                            <div>$500.00</div>
+                            <div>${{ basketTotal }}</div>
                         </div>
 
                         <button type="button" class="productsButtonIndex">Checkout</button>
@@ -579,13 +606,39 @@
             </a>
         </div>
         <div class="row" id="catalog">
-          <!-- ВСТРАИВАЕМОЕ СОДЕРЖИМОЕ -->  
+          <!-- ВСТРАИВАЕМОЕ СОДЕРЖИМОЕ -->
+        <div 
+            class="col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 feturedItems"
+            v-for="item of catalogItems"
+            :key="item.productId"
+            >
+            <div class="feturedItem">
+                <div class="feturedImgWrap">
+                    <div class="feturedBuy">
+                        <button name="add" @click="addBasketItem(item)">
+                            <div><i class="fas fa-shopping-cart"></i> Add to Cart</div>
+                        </button>
+                    </div>
+                    <img class="feturedProduct" :src="item.productImg" alt="product">
+                </div>
+                <div>
+                    <div class="feturedBuySm d-flex flex-column justify-content-around align-items-center align-items-md-start">
+                        <div class="feturedItemName">{{item.productName}}</div>
+                        <div class="feturedItemPrice">${{item.productPrice}}</div>
+                        <button  class="d-md-none" name="add" >
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>  
         </div>
         <div class="container px-0 d-flex justify-content-around">
             <button type="button" class="btn btn-outline-secondary feturedButton">
                 Browse All Product<i class="fas fa-long-arrow-alt-right"></i>
             </button>
         </div>
+
 
         <!-------------------------------FETURED END----------------------------->
         <!-------------------------------OFFER FOR WOMEN ST----------------------------->
@@ -813,6 +866,7 @@
         </div>
     </div>
 </div>
+</div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -822,6 +876,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </body>
 </html>
