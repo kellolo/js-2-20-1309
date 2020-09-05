@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+<form action="#">
+
+    <label for="name">Имя</label><br>
+    <input type="text" id="name" alt="Имя" placeholder="Olga"><br>
+    <label for="phone">Телефон</label><br>
+    <input type="text" id="phone" alt="Телефон" placeholder="+7(000)000-0000"><br>
+    <label for="email">Email</label><br>
+    <input type="text" id="email" alt="Email" placeholder="mymail@mail.ru"><br>
+    <label for="text">Текст</label><br>
+    <textarea name="text" id="text" cols="30" rows="10"></textarea><br>
+    <button type="submit" id="button">Отправить</button>
+
+
+</form>
+    
+    <script>
+        
+        class CheckForm {
+            constructor(button, name, phone, email, container, className) {
+                this.button = document.querySelector(button);
+                this.name = document.getElementById(name);
+                this.phone = document.getElementById(phone);
+                this.email = document.getElementById(email);
+                this.container = document.getElementById(container);
+                this.className = className;
+                this._init();
+            }
+            _init() {
+                this.button.addEventListener('click', () => {
+                    this._data();
+                })
+            }
+            _data() {
+                const regexpName = /(\d)|(\W)/ig;
+                const regexpPhone = /\+7\(.{3}\).{3}-.{4}/;
+                const regexpEmai = /.+@[a-z]+\.[a-z]+/i;
+
+                let nameValue = this.name.value;
+                let phoneValue = this.phone.value;
+                let emailValue = this.email.value;
+
+                this._checkName(regexpName, nameValue, this.name);
+                this._check(regexpPhone, phoneValue, this.phone);
+                this._check(regexpEmai, emailValue, this.email);
+            }
+            _checkName(regexp, txt, input) {
+                if (txt.match(regexp) == null) {
+                    input.classList.remove(this.className);
+                } else {
+                    input.classList.add(this.className);
+                    console.log(`Ошибка в поле ${input.alt}`);
+                }
+            }
+            _check(regexp, txt, input) {
+                if (txt.match(regexp) !== null) {
+                    input.classList.remove(this.className);
+                } else {
+                    input.classList.add(this.className);
+                    console.log(`Ошибка в поле "${input.alt}"`);
+                }
+            }
+        }
+
+        let checkForm = new CheckForm('#button', 'name', 'phone', 'email', 'container', 'red');
+
+
+//____________________________________ Задание 1 про ""_____________________________________
+
+        let text = "Lorem, ipsum 'dolor sit amet consectetur aren't adipisicing' elit.";
+        const regexp = /(\s')|('\s)|('\.)|(\.')|('\,)|(\,')/g;
+        text = text.replace(regexp, ' " ');
+        //console.log(text)
+        
+
+    </script>
+</body>
+</html>
