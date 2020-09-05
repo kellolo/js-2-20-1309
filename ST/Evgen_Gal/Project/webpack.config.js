@@ -7,7 +7,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { Template } = require("webpack");
 // в webpack require module.exports = {} это экспорт
 module.exports = {
-  // для сборки файлов в опред место. bundle станд назв для собран js файлам
+  // для сборки файлов js в опред место. bundle `связка` станд назв для собран js файлам
   output: {
     filename: "js/bundle.js",
   },
@@ -17,6 +17,11 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        // для работы файла loader
+        test: /\.(png|jpe?g|svg|gif)$/i,
+        use: { loader: "file-loader" },
       },
     ],
   },
@@ -35,6 +40,6 @@ module.exports = {
       patterns: [{ from: "./src/assets/imgs", to: "img" }],
     }),
     // объявляем то что подключили выше. можем не указывать на index.html так как одноименно
-    new HtmlWebpackPlugin({ template: "./public" }),
+    new HtmlWebpackPlugin({ template: "./public/index.html" }),
   ],
 };
