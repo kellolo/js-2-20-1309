@@ -20,13 +20,13 @@ module.exports = {
   },
   plugins: [
     new CopyPlugin({
-      patterns: [{ from: './src/assets/imgs', to: 'img' }],
+      patterns: [{ from: './src/img', to: 'img' }],
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: './css/styles.css',
+      filename: './src/css/main.min.css',
       chunkFilename: '[id].css',
     }),
   ],
