@@ -3,8 +3,7 @@ export class Catalog {
     this.container = document.querySelector('#catalog');
     this.items = [];
     this.basket = basket;
-    this.url =
-      'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json';
+    this.url = 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json';
 
     this._get(this.url)
       .then(arr => {
