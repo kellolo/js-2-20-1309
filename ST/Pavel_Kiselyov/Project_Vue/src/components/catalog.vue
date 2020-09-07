@@ -5,7 +5,10 @@
 </template>
 
 <script>
-import item from './itemCatalog.vue';
+import item from './item.vue';
+import {
+    get
+} from '../utils/requests.js';
 export default {
     components: {
         item
@@ -13,18 +16,17 @@ export default {
     data() {
         return {
             items: [],
-            url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json'
+            url: '/api/catalog'
+            // url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json'
         }
     },
     methods: {
-        get(url) {
-            return fetch(url).then(d => d.json())
-        },
+
     },
     mounted() {
-        this.get(this.url)
+        get(this.url)
             .then(items => {
-                this.items = items;
+                this.items = items
             })
     }
 }
