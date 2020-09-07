@@ -8,87 +8,10 @@
     <title>Brand</title>
   </head>
   <body>
-    <div id="app">
-      <!-- HEADER -->
-      <header class="header container">
-        <div class="header__input_wrapper">
-          <a href="#" class="logo">
-            <img src="./img/layers.png" alt="Brand-Logo" />
-          </a>
-          <button class="browse__dropdown">Browse</button>
-          <input class="header__input" type="search" placeholder="Search for Item..." />
-          <button class="search-btn"></button>
-        </div>
-        <div class="header__search_wrapper">
-          <button class="cart__btn" id="basket-toggler" @click="show = !show">
-            <img src="./img/cart.svg" alt="Cart" />
-          </button>
-          <div class="cart" id="basket" v-if="show">
-            <div class="cart__item" id="basket-items" v-for="item of catalogItems">
-              <img class="cart__item-img" src="#" alt="" />
-              <h4 class="cart__item-title"></h4>
-              <i class="fas fa-times-circle"></i>
-            </div>
-            <div class="cart__price">TOTAL</div>
-            <footer class="cart__footer">
-              <button class="cart__footer-checkout">Checkout</button>
-              <button class="cart__footer-cart">Go to cart</button>
-            </footer>
-          </div>
-          <button class="account__dropdown">My account</button>
-        </div>
-        <nav class="header__menu">
-          <ul class="header__list">
-            <li class="header__list-item">
-              <a href="#" class="header__list-link" type="button">home</a>
-            </li>
-            <li class="header__list-item">
-              <a href="#" class="header__list-link" type="button">man</a>
-            </li>
-            <li class="header__list-item">
-              <a href="#" class="header__list-link" type="button">women</a>
-            </li>
-            <li class="header__list-item">
-              <a href="#" class="header__list-link" type="button">women</a>
-            </li>
-            <li class="header__list-item">
-              <a href="#" class="header__list-link" type="button">kids</a>
-            </li>
-            <li class="header__list-item">
-              <a href="#" class="header__list-link" type="button">accessories</a>
-            </li>
-            <li class="header__list-item">
-              <a href="#" class="header__list-link" type="button">featured</a>
-            </li>
-            <li class="header__list-item">
-              <a href="#" class="header__list-link" type="button">hot deals</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-
-      <!-- CATALOG -->
-      <section class="catalog container">
-        <h2 class="catalog__title title">Fetured Items</h2>
-        <h3 class="catalog__subtitle subtitle">
-          Shop for items based on what we featured in this week
-        </h3>
-        <div class="catalog__wrapper" id="catalog">
-          <div class="item" v-for="item of catalogItems">
-            <img class="item__img" :src="item.productImg" alt="#" width="260" height="280" />
-            <button class="item__button">Add to Cart</button>
-            <footer class="item__footer">
-              <h4 class="item__title">{{ item.productName}}</h4>
-              <span class="item__price">{{ item.productPrice }}</span>
-            </footer>
-          </div>
-        </div>
-        <button class="catalog__button button">Browse All Product</button>
-      </section>
-    </div>
+    <div id="app"></div>
 
     <!-- SCRIPT -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./js/main.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/main.js"></script> -->
   </body>
 </html>
