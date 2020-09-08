@@ -1,27 +1,18 @@
 <template>
   <div class="cart" id="basket">
-    <div class="cart__item" id="basket-items" v-for="item of basketItems" :key="item.productId">
-      <img
-        class="cart__item-img"
-        :src="item.productImg"
-        alt="item.productName"
-        width="80"
-        height="80"
-      />
-      <div class="cart__item-info">
-        <h4 class="cart__item-title">{{item.productName}}</h4>
-        <span class="cart__item-price">
-          1
-          <span class="cart__item-ammount">x</span>
-          ${{ item.productPrice }}
-        </span>
-        <button class="cart__item-remove" v-on:click="remove">
-          <i class="fas fa-times-circle"></i>
-        </button>
-      </div>
-    </div>
+    <item
+      type="basket"
+      v-for="item of basketItems"
+      :item="item"
+      :key="item.productId"
+      @del="remove"
+    />
+    <!-- <p>Total Number of Items: {{totalNumberOfCartItems}}</p> -->
 
-    <div class="cart__price">TOTAL</div>
+    <div class="cart__price">
+      <span>TOTAL</span>
+      <span>${{ total }}</span>
+    </div>
     <footer class="cart__footer">
       <button class="cart__footer-checkout">Checkout</button>
       <button class="cart__footer-cart">Go to cart</button>
@@ -30,38 +21,60 @@
 </template>
 
 <script>
+import item from '../js/item.vue';
+// import store from "../store/store.js";
+import { get } from '../utils/requests.js';
+
 export default {
   data() {
     return {
       basketItems: [],
-      basketAmmount: "",
-      url:
-        "https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json",
+      // url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
+      url: '/api/basket',
     };
   },
+  components: {
+    item,
+  },
   methods: {
-    get(url) {
-      return fetch(url).then((d) => d.json());
+    buy(item) {
+      let find = this.basketItems.find((el) => el.productId == item.productId);
+      if (find) {
+        find.amount++;
+      } else {
+        this.basketItems.push(
+          Object.assign({}, item, {
+            amount: 1,
+          })
+        );
+      }
     },
-
-    remove(item) {
-      if (item.amount > 1) {
-        item.amount--;
+    remove(id) {
+      let find = this.basketItems.find((el) => el.productId == id);
+      if (find.amount > 1) {
+        find.amount--;
       } else {
         this.basketItems.splice(this.basketItems.indexOf(find), 1);
       }
     },
   },
   mounted() {
-    this.get(this.url).then((items) => {
+    get(this.url).then((items) => {
       this.basketItems = items.content;
     });
-    this.get(this.url).then((items) => {
-      this.basketAmmount = items.amount;
-    });
+  },
+  computed: {
+    total() {
+      let total = this.basketItems.reduce((sum, nextItem) => {
+        return (sum += nextItem.amount * nextItem.productPrice);
+      }, 0);
+      return total;
+    },
+    // totalNumberOfCartItems() {
+    //   return this.$store.getters.totalNumberOfCartItems;
+    // },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

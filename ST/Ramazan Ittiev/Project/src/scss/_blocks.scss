@@ -68,6 +68,8 @@
     outline: none;
   }
   &__price {
+    display: flex;
+    justify-content: space-between;
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
@@ -160,6 +162,7 @@
   width: 260px;
   min-height: 400px;
   transition: display 0.5s;
+  display: block;
   cursor: pointer;
   &:hover &__overlay {
     display: block;

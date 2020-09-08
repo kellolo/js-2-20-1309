@@ -14,7 +14,7 @@
       </button>
 
       <!-- BASKET -->
-      <basket v-show="show" />
+      <basket ref="bask" v-show="show" />
 
       <button class="account__dropdown">My account</button>
     </div>
@@ -50,10 +50,12 @@
 </template>
 
 <script>
-import basket from "../js/basket.vue";
+import item from '../js/item.vue';
 
-import cart from "../img/cart.svg";
-import logo from "../img/logo.png";
+import basket from '../js/basket.vue';
+
+import cart from '../img/cart.svg';
+import logo from '../img/logo.png';
 
 export default {
   data() {
@@ -69,5 +71,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

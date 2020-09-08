@@ -6,7 +6,10 @@
     <!-- CATALOG -->
     <section class="catalog container">
       <h2 class="catalog__title title">Fetured Items</h2>
-      <h3 class="catalog__subtitle subtitle">Shop for items based on what we featured in this week</h3>
+      <h3 class="catalog__subtitle subtitle">
+        Shop for items based on what we featured in this week
+      </h3>
+
       <!-- items -->
       <catalog />
 
@@ -16,9 +19,10 @@
 </template>
 
 <script>
-import catalog from "../js/catalog.vue";
-import basket from "../js/basket.vue";
-import pageHeader from "../js/pageHeader.vue";
+import basket from '../js/basket.vue';
+import catalog from '../js/catalog.vue';
+import pageHeader from '../js/pageHeader.vue';
+import store from '../store/store.js';
 
 export default {
   components: {
@@ -26,15 +30,7 @@ export default {
     basket,
     pageHeader,
   },
-  methods: {
-    find(item) {
-      return this.basketItems.find((el) => {
-        el.productId == item.productId;
-      });
-    },
-  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
