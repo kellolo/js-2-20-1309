@@ -1,7 +1,11 @@
 import bootstrap from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './css/styles.css';
+import './css/main.min.css';
 
-import app from './js/main.js';
+import Vue from 'vue';
+import app from './views/main.vue';
 
-app();
+// app();
+new Vue({
+  render: (h) => h(app),
+}).$mount('#app');

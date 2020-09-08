@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+.heading {
+    padding: 5px;
+    background-color: rgba(238, 238, 200, 1);
+    text-align: center;
+}
+
+.invisible {
+    display: none;
+}
+
+/* shop-heading */
+
+.shop-heading {
+    padding: 5px;
+    background-color: rgba(238, 238, 200, 1);
+    text-align: center;
+}
+
+/* header */
+
+.header {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(238, 238, 200, 0.5);
+}
+
+.shop-logo {
+    padding: 5px;
+}
+
+.header-links {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.basket {
+    position: relative;
+}
+
+.basket-button {
+    padding: 10px 30px;
+    background-color: rgba(238, 238, 200, 1);
+    border-radius: 20px;
+    outline: none;
+    border: none;
+}
+
+.basket-button:hover {
+    background-color: black;
+    color: rgba(238, 238, 200, 1);
+}
+
+.basket-container {
+    background-color: rgb(238, 238, 200);
+    position: absolute;
+    top: 45px;
+    left: -100px;
+    padding: 10px;
+    border: 1px solid #000;
+}
+
+/* catalog */
+
+.catalog {
+    padding: 40px 40px 20px;
+}
+
+.catalog-menu {
+    padding: 5px;
+    background-color: rgba(238, 238, 200, 0.7);
+}
+
+.catalog-menu-wrapper {
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.catalog-content {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 10px;
+    padding: 10px;
+    border: 10px solid rgba(238, 238, 200, 0.7);
+}
+
+.catalog-item {
+    padding: 5px;
+    background-color: rgba(238, 238, 200, 0.4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 10px solid rgba(238, 238, 200, 0.7);
+}
+
+.catalog-item:hover {
+    background-color: rgba(238, 238, 200, 1);
+    border: 10px solid rgba(238, 238, 200, 1);
+}
+
+.catalog-item-title {
+    flex-basis: 100%;
+    text-align: center;
+    padding: 5px 0 20px 0;
+}
+
+.catalog-item-description {
+    margin: 0 auto;
+}
