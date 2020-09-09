@@ -10,7 +10,7 @@
                                         col-md-3 offset-md-4
                                         col-sm-4 offset-sm-4">
                 <a href="#" class="pr-2">
-                    <img src="../assets/imgs/logo.png" alt="logo">
+                    <img :src="'img/logo.png'" alt="logo">
                 </a>
                 <a href="#" class="pr-3 pr-xl-3 pr-lg-0 pr-md-2 pr-sm-2 brand">bran<span>d</span></a>
             </div>
@@ -63,9 +63,9 @@
 
 
                 <div class="headerCart pr-4" >
-                    <button id="basket-toggler"></button>
+                    <button id="basket-toggler" @click="showBasket = !showBasket"></button>
 
-                    <basket />
+                    <basket ref="bask" v-show="showBasket" />
 
                 </div>
 
@@ -107,13 +107,13 @@
                                     col-2 pt-1
                                     col-sm-6">
                 <div class="headerCart pr-4" >
-                    <a href="#"><img src="../assets/imgs/cart.png" alt="headerCart"></a>
+                    <a href="#"><img src="/img/cart.png" alt="headerCart"></a>
                     <div class="headerCartWrap">
                         <div class="headerCartWrapBlock"></div>
                         <div class="headerCartWrapInAll">
                             <div class="d-flex headerCartWrapIn">
                                 <a href="#" class="d-flex ">
-                                    <img src="../assets/imgs/myAccount1.jpg" alt="">
+                                    <img src="/img/myAccount1.jpg" alt="">
                                     <div>
                                         <div>Rebox Zane</div>
                                         <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
@@ -125,7 +125,7 @@
 
                             <div class="d-flex">
                                 <a href="#" class="d-flex headerCartWrapIn">
-                                    <img src="../assets/imgs/myAccount2.jpg" alt="">
+                                    <img src="/img/myAccount2.jpg" alt="">
                                     <div>
                                         <div>Rebox Zane</div>
                                         <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span>
@@ -202,7 +202,7 @@
                     <a href="#" class="dropNavItem" type="button">Jackets/Coats</a>
                     <a href="">
                         <div>Super sale!</div>
-                        <img src="../assets/imgs/navDrop.jpg" alt="nav img">
+                        <img src="/img/navDrop.jpg" alt="nav img">
                     </a>
                 </div>
             </div>
@@ -243,7 +243,7 @@
                     <a href="#" class="dropNavItem" type="button">Jackets/Coats</a>
                     <a href="">
                         <div>Super sale!</div>
-                        <img src="../assets/imgs/navDrop.jpg" alt="nav img">
+                        <img src="/img/navDrop.jpg" alt="nav img">
                     </a>
                 </div>
             </div>
@@ -284,7 +284,7 @@
                     <a href="#" class="dropNavItem" type="button">Jackets/Coats</a>
                     <a href="">
                         <div>Super sale!</div>
-                        <img src="../assets/imgs/navDrop.jpg" alt="nav img">
+                        <img src="/img/navDrop.jpg" alt="nav img">
                     </a>
                 </div>
             </div>
@@ -325,7 +325,7 @@
                     <a href="#" class="dropNavItem" type="button">Jackets/Coats</a>
                     <a href="">
                         <div>Super sale!</div>
-                        <img src="../assets/imgs/navDrop.jpg" alt="nav img">
+                        <img src="/img/navDrop.jpg" alt="nav img">
                     </a>
                 </div>
             </div>
@@ -366,7 +366,7 @@
                     <a href="#" class="dropNavItem" type="button">Jackets/Coats</a>
                     <a href="">
                         <div>Super sale!</div>
-                        <img src="../assets/imgs/navDrop.jpg" alt="nav img">
+                        <img src="/img/navDrop.jpg" alt="nav img">
                     </a>
                 </div>
             </div>
@@ -407,7 +407,7 @@
                     <a href="#" class="dropNavItem" type="button">Jackets/Coats</a>
                     <a href="">
                         <div>Super sale!</div>
-                        <img src="../assets/imgs/navDrop.jpg" alt="nav img">
+                        <img src="/img/navDrop.jpg" alt="nav img">
                     </a>
                 </div>
             </div>
@@ -448,7 +448,7 @@
                     <a href="#" class="dropNavItem" type="button">Jackets/Coats</a>
                     <a href="">
                         <div>Super sale!</div>
-                        <img src="../assets/imgs/navDrop.jpg" alt="nav img">
+                        <img src="/img/navDrop.jpg" alt="nav img">
                     </a>
                 </div>
             </div>
@@ -485,7 +485,12 @@
 <script>
 import basket from '../components/basket.vue';
 export default {
-    components: { basket }
+    components: { basket },
+    data() {
+        return {
+            showBasket: false
+        }
+    }
 }
 </script>
 
