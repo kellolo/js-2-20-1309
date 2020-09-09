@@ -29,6 +29,10 @@
 @media (max-width: 350.98px) {
   .headerAccountAndCart {
     flex: none; } }
+
+.invisible {
+  display: none !important;
+}
 #basket {
   background: #fff !important;
   padding: 10px;
@@ -1480,15 +1484,16 @@ body {
   .newArrivalsPath a:last-child {
     font-weight: 700;
     color: #f16d7f; }
-
+.headerCartWrapInAll{
+  z-index: 10;
+}
+#basket {
+  background: #fff !important;
+  padding: 10px;
+  margin-right: 2em;
+  z-index: 10;
+  left: -100px;
+}
 /*-------------------------------NEW ARRIVAL END-----------------------------*/
 
 /*# sourceMappingURL=styles.css.map */
-.catalog{
-  display: flex;
-  flex-wrap: wrap;
-  margin: 5%;
-}
-.catalog-item{
-  margin: 1%;
-}

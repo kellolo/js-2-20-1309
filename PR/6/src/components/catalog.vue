@@ -6,6 +6,9 @@
 
 <script>
 import item from './item.vue';
+import {
+    get
+} from '../utils/requests.js';
 export default {
     components: {
         item
@@ -17,12 +20,10 @@ export default {
         }
     },
     methods: {
-        get(url) {
-            return fetch(url).then(d => d.json())
-        },
+
     },
     mounted() {
-        this.get(this.url)
+        get(this.url)
             .then(items => {
                 this.items = items
             })
