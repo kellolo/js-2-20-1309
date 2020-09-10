@@ -1,7 +1,6 @@
-// import { Basket } from './basket';
-// import { Catalog } from './catalog';
+import { Basket, Catalog } from './LISTS';
 
-// export default () => {
-//   const basket = new Basket();
-//   const catalog = new Catalog(Basket);
-// };
+export default () => {
+    let basket = new Basket();
+    let catalog = new Catalog(basket);
+}

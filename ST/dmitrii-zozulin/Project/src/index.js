@@ -1,9 +1,12 @@
-import jquery from 'jquery';
-import popper from 'popper.js';
 import bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './layout/styles/styles.css';
 
-import app from './components';
+import Vue from 'vue';
 
-app();
+import app from './views/mainpage.vue';
+
+// app();
+new Vue({
+    render: h => h(app)
+}).$mount('#app');
