@@ -27,7 +27,7 @@
     data() {
       return {
         items: this.$store.state.basket.items,
-        url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
+        url: 'http://localhost:3000/',
       };
     },
     computed: {
@@ -37,7 +37,7 @@
     },
     mounted() {
       get(this.url).then(basket => {
-        basket.content.forEach(element => {
+        basket.forEach(element => {
           this.$store.commit('basket/add', element);
         });
       });
