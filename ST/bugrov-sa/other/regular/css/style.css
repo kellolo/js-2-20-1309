@@ -1,0 +1,37 @@
+.text-input {
+    width: 500px;
+    display: block;
+}
+
+.text-output {
+    width: 500px;
+    display: block;
+}
+
+.btn {
+    display: block;
+    margin: 20px 0 20px 0;
+}
+
+#name-input,
+#phone-input,
+#email-input,
+#disc-input {
+    display: flex;
+    margin: 0 0 10px 0;
+    width: 200px;
+}
+
+.wrong {
+    outline: 1px solid red;
+}
+
+.error {
+    color: red;
+    display: flex;
+}
+
+.done {
+    color: green;
+    display: flex;
+}
