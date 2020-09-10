@@ -6,7 +6,7 @@
 
 
             <div id="basket-items" class="basket-items">
-                <basketitem v-for="item of items" :key="item.productId" :item="item" />
+                <basketitem v-for="item of this.$store.state.basket.items" :key="item.productId" :item="item" @remove="remove" />
             </div>
 
 
@@ -25,31 +25,25 @@
 
 <script>
 import basketitem from './basketItem.vue';
+import {
+    get
+} from '../utils/requests.js';
 
 export default {
     components: { basketitem },
     data() {
         return {
-            items: [],
-            url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
         }
     },
     methods: {
-        get(url) {
-            return fetch(url).then(d => d.json())
-        },
+        
+
         remove(id){
-            let itemBasket = this.items.find(el => el.productId == id);
-            if (itemBasket.amount > 1){
-                itemBasket.amount--;
-            } else {
-                this.items.splice(this.items.indexOf(itemBasket), 1);
-            }
-        },
+            this.$store.commit('remove', id);
+        }
     },
     mounted(){
-        this.get(this.url)
-        .then(items => {this.items = items.content});
+        this.$store.commit('mountedBasket');
     }
 }
 </script>

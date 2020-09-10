@@ -17,7 +17,7 @@
         <button 
             class="fas fa-times-circle"
             name="remove"
-            @click="remove(item.productId)">
+            @click="$emit('remove', item.productId)">
             
         </button>
         

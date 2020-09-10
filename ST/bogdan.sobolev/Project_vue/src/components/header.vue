@@ -63,7 +63,7 @@
                     <div class="headerCart pr-4" >
                         <button id="basket-toggler" @click="showBasket = !showBasket"></button>
                         <!-- BASKET -->
-                        <basket/>
+                        <basket ref="bask" v-show="showBasket" />
                         <!-- BASKET END-->
 
                     </div>
@@ -168,7 +168,12 @@
     import basket from './basket.vue';
 
     export default {
-        components: { basket }
+        components: { basket },
+        data() {
+            return {
+                showBasket: false
+            }
+        },
     }
 </script>
 

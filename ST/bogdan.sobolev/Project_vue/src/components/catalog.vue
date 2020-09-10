@@ -1,27 +1,31 @@
 <template>
     <div class="row" id="catalog"> 
-        <item v-for="item of items" :key="item.productId" :item="item" />
+        <item v-for="item of items" :key="item.productId" :item="item" @buy="buy" />
     </div>
 </template>
 
 <script>
 import item from './item.vue';
+import {
+    get
+} from '../utils/requests.js';
 
 export default {
     components: { item },
     data() {
         return {
             items: [],
-            url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
+            //url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
+            url: '/api/catalog'
         }
     },
     methods: {
-        get(url) {
-            return fetch(url).then(d => d.json())
+        buy(item) {
+            this.$store.commit('buy', item);
         },
     },
     mounted(){
-        this.get(this.url)
+        get(this.url)
         .then(items => {this.items = items});
     }
 }
