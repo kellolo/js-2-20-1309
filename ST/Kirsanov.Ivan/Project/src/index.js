@@ -2,6 +2,10 @@ import bootstrap from 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './layout/styles/styles.css';
 
-import app from './components/index.js';
+import Vue from 'vue';
 
-app();
+import app from './views/mainpage.vue';
+
+new Vue({
+    render: h => h(app)
+}).$mount('#app');

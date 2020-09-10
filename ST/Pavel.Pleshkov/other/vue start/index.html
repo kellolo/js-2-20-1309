@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Hello, {{ name.toUpperCase() }}!</h1>
+        <input type="text" v-model="name">
+        <p v-if="name.length != 0">Hi, my name is {{ upperCaseName }}</p>
+        <hr>
+
+        <!-- <ul>
+            <li v-for="name in names" v-on:click="clickHandler"> -->
+            <!-- <li v-for="name in names" @click="clickHandler"> -->
+                <!-- <pre>{{ name }}</pre>
+            </li>
+        </ul> -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
