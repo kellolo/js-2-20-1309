@@ -17,6 +17,8 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.10.0",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
@@ -24,6 +26,7 @@
   "dependencies": {
     "bootstrap": "^4.5.2",
     "jquery": "^3.5.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "vue": "^2.6.12"
   }
 }
