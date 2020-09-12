@@ -50,12 +50,12 @@
 </template>
 
 <script>
-import item from '../js/item.vue';
+import item from "../item/item.vue";
 
-import basket from '../js/basket.vue';
+import basket from "../header/basket.vue";
 
-import cart from '../img/cart.svg';
-import logo from '../img/logo.png';
+import cart from "../../img/cart.svg";
+import logo from "../../img/logo.png";
 
 export default {
   data() {

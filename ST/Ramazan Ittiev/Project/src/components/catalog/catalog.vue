@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import item from '../js/item.vue';
-import { get } from '../utils/requests.js';
+import item from "../item/item.vue";
+import { get } from "../../utils/requests.js";
 
 export default {
   data() {
     return {
       catalogItems: [],
       // url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
-      url: '/api/catalog',
+      url: "/api/catalog",
     };
   },
   components: {

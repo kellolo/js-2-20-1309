@@ -21,16 +21,16 @@
 </template>
 
 <script>
-import item from '../js/item.vue';
+import item from "../item/item.vue";
 // import store from "../store/store.js";
-import { get } from '../utils/requests.js';
+import { get } from "../../utils/requests.js";
 
 export default {
   data() {
     return {
       basketItems: [],
       // url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
-      url: '/api/basket',
+      url: "/api/basket",
     };
   },
   components: {

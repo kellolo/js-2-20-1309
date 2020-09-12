@@ -1,0 +1,19 @@
+.catalog {
+  padding: 50px 0;
+  &__wrapper {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+  }
+  &__button {
+    width: 212px;
+    height: 48px;
+    background-color: #f16d7f;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    color: #ffffff;
+    margin: 110px auto 0;
+  }
+}
