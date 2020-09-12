@@ -40,7 +40,7 @@ https://github.com/kellolo/static - ссылка на обший базу дан
 1) в общем pull request - new pull request - compare across forks
 2) установка репозитория с общего на свой
 3) жать create pull request
-4) принимаем у себя
+4) принимаем у себя: pull request - выбор ветки - открыть её - merge pull request - confirm merge
 
   Перед началом
 $$ npm init -y
