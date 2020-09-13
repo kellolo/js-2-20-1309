@@ -19,7 +19,7 @@
         <div
           class="row headerAccountAndCart d-none align-items-center col-12 offset-0 px-0 pt-3 mx-auto justify-content-center col-xl-2 offset-xl-3 mt-xl-0 col-lg-3 offset-lg-2 pt-lg-0 col-md-3 offset-md-2 mt-md-0 mr-md-0 d-md-flex col-sm-4 offset-sm-4 pt-sm-3 justify-content-sm-end"
         >
-          <basket />
+          <basket ref="cart" />
           <account />
         </div>
       </div>
