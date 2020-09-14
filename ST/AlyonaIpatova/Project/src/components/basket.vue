@@ -25,7 +25,7 @@ export default {
     data() {
         return {
             items: [],
-            url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json'
+            url: '/api/basket'
         }
     },
     methods: {
