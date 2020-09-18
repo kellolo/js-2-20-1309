@@ -6,8 +6,7 @@
       <div class="feturedItem">
         <div class="feturedImgWrap">
           <div class="feturedBuy">
-             <button @click="$parent.$parent.$children[0].$refs.cart.addBasketItem(item)">
-             <!-- <button @click="test"> -->
+             <button @click="add(item)">
               <div>
                 <i class="fas fa-shopping-cart"></i> Add to Cart
               </div>
@@ -46,7 +45,33 @@
           ${{item.productPrice}}
         </div>
       </div>
-      <button class="fas fa-times-circle" @click="$emit('remove-item', item)"></button>
+      <button class="fas fa-times-circle" @click="remove(item)"></button>
+    </template>
+
+    <template v-if="type == 'catalogalso'">
+      <div class="feturedItem">
+        <div class="feturedImgWrap">
+          <div class="feturedBuy">
+             <button @click="add(item)">
+              <div>
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+              </div>
+            </button>
+          </div>
+          <img class="feturedProduct" :src="item.productImg" alt="product" />
+        </div>
+        <div>
+          <div
+            class="feturedBuySm d-flex flex-column justify-content-around align-items-center align-items-md-start"
+          >
+            <div class="feturedItemName">{{item.productName}}</div>
+            <div class="feturedItemPrice">${{item.productPrice}}</div>
+            <button class="d-md-none" name="add">
+              <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
     </template>
   </div>
 </template>
@@ -63,6 +88,14 @@ export default {
       default: "catalog",
     },
   },
+  methods: {
+    remove(item){
+      this.$store.commit("removeBasketItem", item)
+    },
+    add(item){
+      this.$store.commit("addBasketItem", item)
+    }
+  }
 };
 </script>
 

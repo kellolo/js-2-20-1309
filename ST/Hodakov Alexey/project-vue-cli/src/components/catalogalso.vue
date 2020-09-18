@@ -1,6 +1,6 @@
 <template>
   <div class="row" id="catalog">
-    <item v-for="item of this.$store.state.catalogItems" :key="item.productId" :item="item" />
+    <item v-for="item of this.$store.state.catalogAlsoItems" :key="item.productId" :item="item" type="catalogalso"/>
   </div>
 </template>
 
@@ -13,8 +13,8 @@ export default {
 
   methods: {},
   mounted() {
-    get(this.$store.state.catalogUrl).then((items) => {
-      this.$store.commit("addCatalogItems", items);
+    get(this.$store.state.catalogAlsoUrl).then((items) => {
+      this.$store.commit("addCatalogAlsoItems", items);
     });
   },
 };

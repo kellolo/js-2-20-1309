@@ -103,7 +103,7 @@
 
       <div class="container px-0">
         <div class="alsoTitle d-flex justify-content-center">you may like also</div>
-        <div class="row" id="catalog"></div>
+        <catalogalso />
       </div>
     </div>
 
@@ -112,7 +112,10 @@
 </template>
 
 <script>
-export default {};
+import catalogalso from "../components/catalogalso.vue";
+export default {
+  components: { catalogalso },
+};
 </script>
 
 <style>

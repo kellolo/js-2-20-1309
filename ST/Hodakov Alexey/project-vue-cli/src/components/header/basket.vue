@@ -8,10 +8,9 @@
 
         <item
           type="basket"
-          v-for="item of items"
+          v-for="item of this.$store.state.basketItems"
           :key="item.productId"
           :item="item"
-          @remove-item="removeBasketItem"
         />
 
         <div class="headerCartWrapTotalPrice">
@@ -43,44 +42,11 @@ export default {
     find(item) {
       return this.items.find((el) => el.productId == item.productId);
     },
-
-    removeBasketItem(item) {
-      if (item.amount > 1) {
-        put(`${this.url}/${item.productId}`, { amount: -1 }).then((s) => {
-          if (s) {
-            item.amount--;
-          }
-        });
-      } else {
-        del(`${this.url}/${item.productId}`).then((s) => {
-          if (s) {
-            this.items.splice(this.items.indexOf(this.find(item)), 1);
-          }
-        });
-      }
-    },
-
-    addBasketItem(item) {
-      if (this.find(item)) {
-        put(`${this.url}/${item.productId}`, { amount: 1 }).then((s) => {
-          if (s) {
-            this.find(item).amount++;
-          }
-        });
-      } else {
-        let newItem = Object.assign({}, item, { amount: 1 });
-        post(this.url, newItem).then((s) => {
-          if (s) {
-            this.items.push(newItem);
-          }
-        });
-      }
-    },
   },
 
   computed: {
     basketTotal() {
-      let sum = this.items.reduce((total, el) => {
+      let sum = this.$store.state.basketItems.reduce((total, el) => {
         return (total += el.productPrice * el.amount);
       }, 0);
       return sum ? sum : 0;
@@ -88,8 +54,8 @@ export default {
   },
 
   mounted() {
-    get(this.url).then((item) => {
-      this.items = item.content;
+    get(this.$store.state.basketUrl).then((item) => {
+      this.$store.commit('addBasketItems', item);
     });
   },
 };
