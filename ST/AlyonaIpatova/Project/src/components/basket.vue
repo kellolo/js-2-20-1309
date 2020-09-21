@@ -19,7 +19,7 @@
 
 <script>
 import item from './item.vue';
-import { get } from '../utils/requests.js';
+import { get, post, put, del } from '../utils/requests.js';
 export default {
     components: { item },
     data() {
@@ -32,19 +32,35 @@ export default {
         buy(item) {
             let find = this.items.find(el => el.productId == item.productId);
             if (find) {
-                find.amount++;
+                put(`${this.url}/${item.productId}`, { amount: 1})
+                    .then(s => {
+                        if(s) {
+                            find.amount++;
+                        }
+                })
             } else {
-                this.items.push(Object.assign({}, item, {
-                    amount: 1
-                }))
+                let newItem = Object.assign({}, item, { amount: 1 });
+                post(this.url, newItem)
+                    .then(s => {
+                        this.items.push(newItem)
+                    })
+                
             }
         },
         remove(id) {
             let find = this.items.find(el => el.productId == id);
             if (find.amount > 1) {
-                find.amount--;
+                put(`${this.url}/${id}`, { amount: -1})
+                    .then(s => {
+                        if(s) {
+                            find.amount--;
+                        }
+                    })
             } else {
-                this.items.splice(this.items.indexOf(find), 1);
+                del(`${this.url}/${id}`)
+                .then(s => {
+                    this.items.splice(this.items.indexOf(find), 1);
+                })
             }
         }
     },

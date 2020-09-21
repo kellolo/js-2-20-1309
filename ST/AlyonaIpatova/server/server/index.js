@@ -1,6 +1,7 @@
 const express = require('express');
-const fs = require ('fs');
-const { json } = require('express');
+const fs = require('fs');
+const Basket = require('./services/basket-service');
+const writer = require('./utils/writer');
 
 const server = express();
 
@@ -22,4 +23,56 @@ server.get('/basket', (req, res) => {
     })
 })
 
+server.post('/basket', (req, res) => {
+    fs.readFile('./db/basket.json', 'utf-8', (error, data) => {
+        if (!error) {
+            let oldB = JSON.parse(data);
+            let newB = Basket.add(oldB, req.body);
+            writer('./db/basket.json', newB)
+                .then(ans => {
+                    if (ans) {
+                        res.json({ status: true });
+                    } else {
+                        res.sendStatus(500);
+                    }
+                })
+        }
+    })
+})
+
+server.put('/basket/:id', (req, res) => {
+    fs.readFile('./db/basket.json', 'utf-8', (error, data) => {
+        if (!error) {
+            let oldB = JSON.parse(data);
+            let newB = Basket.change(oldB, req.params.id, req.body.amount);
+            writer('./db/basket.json', newB)
+                .then(ans => {
+                    if (ans) {
+                        res.json({ status: true });
+                    } else {
+                        res.sendStatus(500);
+                    }
+                })
+        }
+    })
+})
+
+server.delete('/basket/:id', (req, res) => {
+    fs.readFile('./db/basket.json', 'utf-8', (error, data) => {
+        if (!error) {
+            let oldB = JSON.parse(data);
+            let newB = Basket.delete(oldB, req.params.id);
+            writer('./db/basket.json', newB)
+                .then(ans => {
+                    if (ans) {
+                        res.json({ status: true });
+                    } else {
+                        res.sendStatus(500);
+                    }
+                })
+        }
+    })
+})
+
 server.listen(3000)
+
