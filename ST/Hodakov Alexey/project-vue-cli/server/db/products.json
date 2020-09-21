@@ -1,0 +1,74 @@
+[
+    {
+        "productName": "BLACK PEOPLE HOODIE",
+        "productPrice": 34,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product1.jpg",
+        "productId": "prod_13"
+    },
+    {
+        "productName": "DARK CASUAL SUIT",
+        "productPrice": 48,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product2.jpg",
+        "productId": "prod_14"
+    },
+    {
+        "productName": "BLUE MAN BOMBER",
+        "productPrice": 43,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product3.jpg",
+        "productId": "prod_15"
+    },
+    {
+        "productName": "DARK CASUAL COAT",
+        "productPrice": 82,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product4.jpg",
+        "productId": "prod_16"
+    },
+    {
+        "productName": "LIGHT BLUE SUIT",
+        "productPrice": 67,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product5.jpg",
+        "productId": "prod_17"
+    },
+    {
+        "productName": "BLACK PEOPLE HOODIE",
+        "productPrice": 34,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product1.jpg",
+        "productId": "prod_18"
+    },
+    {
+        "productName": "DARK CASUAL SUIT",
+        "productPrice": 48,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product2.jpg",
+        "productId": "prod_19"
+    },
+    {
+        "productName": "BLUE MAN BOMBER",
+        "productPrice": 43,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product3.jpg",
+        "productId": "prod_20"
+    },
+    {
+        "productName": "DARK CASUAL COAT",
+        "productPrice": 82,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product4.jpg",
+        "productId": "prod_21"
+    },
+    {
+        "productName": "LIGHT BLUE SUIT",
+        "productPrice": 67,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product5.jpg",
+        "productId": "prod_22"
+    },
+    {
+        "productName": "DARK CASUAL COAT",
+        "productPrice": 82,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product4.jpg",
+        "productId": "prod_23"
+    },
+    {
+        "productName": "LIGHT BLUE SUIT",
+        "productPrice": 67,
+        "productImg": "https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/Product5.jpg",
+        "productId": "prod_24"
+    }
+]

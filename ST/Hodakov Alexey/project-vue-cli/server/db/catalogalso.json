@@ -1,0 +1,26 @@
+[
+    {
+        "productName":"GRAPHITE WOMEN SUIT",
+        "productPrice":115,
+        "productImg":"https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/singlePageAlso1.png",
+        "productId":"prod_9"
+    },
+    {
+        "productName":"PAISLE WOMEN SKIRT",
+        "productPrice":65,
+        "productImg":"https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/singlePageAlso2.png",
+        "productId":"prod_10"
+    },
+    {
+        "productName":"COUNTRY WOMEN OUTFIT",
+        "productPrice":35,
+        "productImg":"https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/singlePageAlso3.png",
+        "productId":"prod_11"
+    },
+    {
+        "productName":"CITY WOMEN OUTFIT",
+        "productPrice":57,
+        "productImg":"https://raw.githubusercontent.com/kellolo/static/master/img/JS1_shop/singlePageAlso4.png",
+        "productId":"prod_12"
+    }
+]
