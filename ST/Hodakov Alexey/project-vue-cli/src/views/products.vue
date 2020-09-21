@@ -167,7 +167,7 @@
           <!-------------------------------FETURED ST----------------------------->
 
           <!-- <div class="row row-cols-3" id="catalog"></div> -->
-          <catalog/>
+          <product />
 
           <div
             class="d-flex flex-column align-items-center justify-content-around mt-5 flex-sm-row justify-content-sm-between"
@@ -254,10 +254,11 @@
 </template>
 
 <script>
-import catalog from "../components/catalog.vue";
+import product from "../components/product.vue";
 
 export default {
-  components: { catalog },
+  components: { product },
+ 
 };
 </script>
 

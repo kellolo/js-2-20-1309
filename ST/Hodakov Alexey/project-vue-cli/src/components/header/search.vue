@@ -6,12 +6,9 @@
       <button
         class="btn-lg btn btn-secondary dropdown-toggle"
         type="button"
-        id="dropdownMenu2"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
+       @click=" show = !show"
       >Browse</button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <div class="dropdown-menu"  v-show="show" @mouseleave="show = !show">
         <div class="dropdown-item">woman</div>
         <a href="#" class="dropdown-item" type="button">Dresses</a>
         <a href="#" class="dropdown-item" type="button">Tops</a>
@@ -50,7 +47,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      show: false,
+    };
+  },
+};
 </script>
 
 <style>

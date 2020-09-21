@@ -1,14 +1,11 @@
 <template>
   <div class="dropdown">
     <button
-      class="btn-lg btn btn-secondary dropdown-toggle"
+      class="btn-lg btn btn-secondary"
       type="button"
-      id="dropdownMenu2"
-      data-toggle="dropdown"
-      aria-haspopup="true"
-      aria-expanded="false"
+      @click=" show = !show"
     >My Account</button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <div class="dropdown-menu" v-show="show" @mouseleave="show = !show">
       <button class="dropdown-item" type="button">Action</button>
       <button class="dropdown-item" type="button">Another action</button>
       <button class="dropdown-item" type="button">Something else here</button>
@@ -17,7 +14,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      show: false,
+    };
+  },
+};
 </script>
 
 <style>

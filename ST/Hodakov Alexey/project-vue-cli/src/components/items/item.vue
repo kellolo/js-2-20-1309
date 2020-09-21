@@ -1,12 +1,10 @@
 <template>
-  <div
-    :class="type == 'catalog'? 'col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 feturedItems': 'd-flex headerCartWrapIn mb-1 p-2' "
-  >
+  <div :class="containerType">
     <template v-if="type == 'catalog'">
       <div class="feturedItem">
         <div class="feturedImgWrap">
           <div class="feturedBuy">
-             <button @click="add(item)">
+            <button @click="add(item)">
               <div>
                 <i class="fas fa-shopping-cart"></i> Add to Cart
               </div>
@@ -18,9 +16,9 @@
           <div
             class="feturedBuySm d-flex flex-column justify-content-around align-items-center align-items-md-start"
           >
-            <div class="feturedItemName">{{item.productName}}</div>
-            <div class="feturedItemPrice">${{item.productPrice}}</div>
-            <button class="d-md-none" name="add">
+            <div class="feturedItemName d-flex justify-content-center w-100">{{item.productName}}</div>
+            <div class="feturedItemPrice d-flex justify-content-center w-100">${{item.productPrice}}</div>
+            <button class="d-md-none" @click="add(item)">
               <i class="fas fa-shopping-cart"></i> Add to Cart
             </button>
           </div>
@@ -52,9 +50,10 @@
       <div class="feturedItem">
         <div class="feturedImgWrap">
           <div class="feturedBuy">
-             <button @click="add(item)">
+            <button @click="add(item)">
               <div>
-                <i class="fas fa-shopping-cart"></i> Add to Cart
+                <i class="w-70 fas fa-shopping-cart"></i>
+                ${{item.productPrice}}
               </div>
             </button>
           </div>
@@ -64,12 +63,40 @@
           <div
             class="feturedBuySm d-flex flex-column justify-content-around align-items-center align-items-md-start"
           >
-            <div class="feturedItemName">{{item.productName}}</div>
-            <div class="feturedItemPrice">${{item.productPrice}}</div>
-            <button class="d-md-none" name="add">
-              <i class="fas fa-shopping-cart"></i> Add to Cart
+            <div class="feturedItemName d-flex justify-content-center w-100">{{item.productName}}</div>
+            <button class="d-md-none" @click="add(item)">
+              <i class="fas fa-shopping-cart"></i>
+              $ {{item.productPrice}}
             </button>
           </div>
+        </div>
+      </div>
+    </template>
+
+    <template v-if="type == 'basketItem'">
+      <div class="productDetailsDescription">
+        <img :src="item.productImg" alt="ProductCart" width="100px" />
+        <div class="productDescription">
+          <div class="productDescriptionTitle">Mango People T-shirt</div>
+          <div>
+            <div class="productDescriptionFeature">
+              Color:
+              <span>Red</span>
+            </div>
+            <div class="productDescriptionFeature">
+              Size:
+              <span>Xll</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="productDetailsRight">
+        <div class="productDetailsPrice">&#36; {{item.productPrice}}</div>
+        <div class="productDetailsQuantity">{{item.amount}}</div>
+        <div class="productDetailsShipping">Free</div>
+        <div class="productDetailsSubtotal">&#36; {{item.productPrice * item.amount}}</div>
+        <div class="productDetailsAction"  @click="delItem(item)">
+          <i class="fas fa-times-circle"></i>
         </div>
       </div>
     </template>
@@ -88,14 +115,31 @@ export default {
       default: "catalog",
     },
   },
-  methods: {
-    remove(item){
-      this.$store.commit("removeBasketItem", item)
+  computed: {
+    containerType() {
+      switch (this.type) {
+        case "basket":
+          return "d-flex headerCartWrapIn mb-1 p-2";
+        case "catalog":
+          return "col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 feturedItems";
+        case "catalogalso":
+          return "col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 feturedItems";
+        case "basketItem":
+          return "productDetailsProduct";
+      }
     },
-    add(item){
-      this.$store.commit("addBasketItem", item)
-    }
-  }
+  },
+  methods: {
+    remove(item) {
+      this.$store.commit("removeBasketItem", item);
+    },
+    add(item) {
+      this.$store.commit("addBasketItem", item);
+    },
+    delItem(item) {
+      this.$store.commit("deleteBasketItem", item);
+    },
+  },
 };
 </script>
 

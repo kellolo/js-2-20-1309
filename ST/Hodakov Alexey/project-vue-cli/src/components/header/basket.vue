@@ -3,7 +3,7 @@
     <button id="basket-toggler" @click="invisible = !invisible"></button>
     <div class="headerCartWrap" v-show="invisible" id="basket">
       <div class="headerCartWrapBlock"></div>
-      <div class="headerCartWrapInAll">
+      <div class="headerCartWrapInAll" @mouseleave="invisible = !invisible" >
         <div id="basket-items"></div>
 
         <item
@@ -27,15 +27,13 @@
 
 <script>
 import item from "../items/item.vue";
-import { get, post, put, del } from "../../utils/requests.js";
+import { get } from "../../utils/requests.js";
 
 export default {
   components: { item },
   data() {
     return {
       invisible: false,
-      items: [],
-      url: "/api/basket",
     };
   },
   methods: {

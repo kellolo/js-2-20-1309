@@ -81,10 +81,10 @@
         <catalog />
 
         <div class="container px-0 d-flex justify-content-around">
-          <button type="button" class="btn btn-outline-secondary feturedButton">
+          <router-link to="/products"><button type="button" class="btn btn-outline-secondary feturedButton">
             Browse All Product
             <i class="fas fa-long-arrow-alt-right"></i>
-          </button>
+          </button></router-link>
         </div>
         <!-- -----------------------------FETURED END--------------------------- -->
         <!-- -----------------------------OFFER FOR WOMEN ST--------------------------- -->

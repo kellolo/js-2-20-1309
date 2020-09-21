@@ -12,6 +12,9 @@ export default new Vuex.Store({
     catalogItems: [],
     catalogAlsoUrl: "/api/catalogalso",
     catalogAlsoItems: [],
+    productsUrl: "/api/products",
+    productsItems: [],
+
   },
   mutations: {
     addCatalogItems(state, items) {
@@ -22,6 +25,9 @@ export default new Vuex.Store({
     },
     addCatalogAlsoItems(state, items) {
       state.catalogAlsoItems = items;
+    },
+    addProductsItems(state, items){
+      state.productsItems = items;
     },
   
     removeBasketItem(state, item) {
@@ -41,6 +47,25 @@ export default new Vuex.Store({
         });
       }
     },
+
+    deleteBasketItem(state, item){
+      let find = state.basketItems.find((el) => el.productId == item.productId);
+
+      del(`${state.basketUrl}/${item.productId}`).then((s) => {
+        if (s) {
+          state.basketItems.splice(state.basketItems.indexOf(find), 1);
+        }
+     });
+    },
+
+    clearBasketItem(state){
+      del(`/api/clear`).then((s) => {
+        if (s) {
+          state.basketItems=[];
+        }
+     });
+    },
+    
 
     addBasketItem(state, item) {
       let find = state.basketItems.find((el) => el.productId == item.productId);
