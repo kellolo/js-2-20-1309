@@ -6,7 +6,13 @@
       <div class="headerCartWrapInAll">
         <div id="basket-items"></div>
 
-        <item v-for="item of basketItems" :key="item.productId" :item="item" />
+        <item
+          type="basket"
+          v-for="item of items"
+          :key="item.productId"
+          :item="item"
+          @remove-item="removeBasketItem"
+        />
 
         <div class="headerCartWrapTotalPrice">
           <div>total</div>
@@ -21,37 +27,60 @@
 </template>
 
 <script>
-import item from "../items/itemBasket.vue"
+import item from "../items/item.vue";
+import { get, post, put, del } from "../../utils/requests.js";
 
 export default {
-  components: { item},
+  components: { item },
   data() {
     return {
       invisible: false,
-      basketItems: [],
-      url:
-        "https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json",
+      items: [],
+      url: "/api/basket",
     };
   },
   methods: {
-    get(url) {
-      return fetch(url).then((d) => d.json());
-    },
     find(item) {
-      return this.basketItems.find((el) => el.productId == item.productId);
+      return this.items.find((el) => el.productId == item.productId);
     },
-    // removeBasketItem(item) {
-    //   if (item.amount > 1) {
-    //     item.amount--;
-    //   } else {
-    //     this.basketItems.splice(this.basketItems.indexOf(this.find(item)), 1);
-    //   }
-    // },
+
+    removeBasketItem(item) {
+      if (item.amount > 1) {
+        put(`${this.url}/${item.productId}`, { amount: -1 }).then((s) => {
+          if (s) {
+            item.amount--;
+          }
+        });
+      } else {
+        del(`${this.url}/${item.productId}`).then((s) => {
+          if (s) {
+            this.items.splice(this.items.indexOf(this.find(item)), 1);
+          }
+        });
+      }
+    },
+
+    addBasketItem(item) {
+      if (this.find(item)) {
+        put(`${this.url}/${item.productId}`, { amount: 1 }).then((s) => {
+          if (s) {
+            this.find(item).amount++;
+          }
+        });
+      } else {
+        let newItem = Object.assign({}, item, { amount: 1 });
+        post(this.url, newItem).then((s) => {
+          if (s) {
+            this.items.push(newItem);
+          }
+        });
+      }
+    },
   },
 
   computed: {
     basketTotal() {
-      let sum = this.basketItems.reduce((total, el) => {
+      let sum = this.items.reduce((total, el) => {
         return (total += el.productPrice * el.amount);
       }, 0);
       return sum ? sum : 0;
@@ -59,8 +88,8 @@ export default {
   },
 
   mounted() {
-    this.get(this.url).then((item) => {
-      this.basketItems = item.content;
+    get(this.url).then((item) => {
+      this.items = item.content;
     });
   },
 };

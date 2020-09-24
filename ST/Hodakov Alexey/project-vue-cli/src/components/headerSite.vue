@@ -6,7 +6,7 @@
           class="logo d-flex justify-content-center px-0 col-7 col-xl-2 offset-xl-0 col-lg-2 offset-lg-0 col-md-3 offset-md-4 col-sm-4 offset-sm-4"
         >
           <a href="#" class="pr-2">
-            <img src="img/logo.png" alt="logo" />
+            <img src="../assets/imgs/logo.png" alt="logo" />
           </a>
           <a href="#" class="pr-3 pr-xl-3 pr-lg-0 pr-md-2 pr-sm-2 brand">
             bran
@@ -19,7 +19,7 @@
         <div
           class="row headerAccountAndCart d-none align-items-center col-12 offset-0 px-0 pt-3 mx-auto justify-content-center col-xl-2 offset-xl-3 mt-xl-0 col-lg-3 offset-lg-2 pt-lg-0 col-md-3 offset-md-2 mt-md-0 mr-md-0 d-md-flex col-sm-4 offset-sm-4 pt-sm-3 justify-content-sm-end"
         >
-          <basket ref="cart" />
+          <basket />
           <account />
         </div>
       </div>
@@ -30,14 +30,11 @@
             <button
               class="btn btn-secondary px-4 pt-2"
               type="button"
-              id="dropdownMenu2"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
+               @click=" show = !show"
             >
               <i class="burgerMenu fas fa-bars"></i>
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <div class="dropdown-menu"  v-show="show" @mouseleave="show = !show">
               <a href="#" class="dropdown-item" type="button">home</a>
               <a href="#" class="dropdown-item" type="button">man</a>
               <a href="#" class="dropdown-item" type="button">women</a>
@@ -59,23 +56,7 @@
     </header>
 
     <div class="headerLine"></div>
-
-    <nav class="nav container d-none d-md-flex justify-content-center mt-3">
-      <div class="navAll">
-        <a class="nav-link" href="singlePage.html" style="color: blue">Single Page</a>
-      </div>
-      <div class="navAll">
-        <a class="nav-link" href="shoppingCart.html" style="color: blue">Shopping Cart</a>
-      </div>
-      <div class="navAll">
-        <a class="nav-link" href="checkout.html" style="color: blue">Checkout</a>
-      </div>
-      <div class="navAll">
-        <a class="nav-link" href="Product.html" style="color: blue">Product</a>
-      </div>
-      <navigation />
-    </nav>
-
+    <navigation />
     <newArrivals />
   </div>
 </template>
@@ -89,6 +70,11 @@ import search from "./header/search.vue";
 
 export default {
   components: { search, basket, account, navigation, newArrivals },
+   data() {
+    return {
+      show: false,
+    };
+  },
 };
 </script>
 
