@@ -15,10 +15,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|svg|gif)$/i,
-                use: { loader: 'file-loader', options:{
-                    outpath: 'img',
-                    publicPath:'../img/'
-                } }
+                use: { loader: 'file-loader' }
             },
             {
                 test: /\.vue$/i,
@@ -40,5 +37,17 @@ module.exports = {
             template: './public/index.html'
         }),
         new VueLoaderPlugin()
-    ]
+    ],
+    devServer: {
+        port: 8080,
+        open: false,
+        proxy: {
+            '/api': { 
+                target: 'http://localhost:3000',
+                pathRewrite: { '^/api': '' },
+                secure: false,
+                changeOrigin: true
+            }
+        }
+    }
 }
