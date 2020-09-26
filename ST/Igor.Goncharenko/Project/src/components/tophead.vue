@@ -66,24 +66,8 @@
         class="row headerAccountAndCart d-none align-items-center col-12 offset-0 px-0 pt-3 mx-auto justify-content-center col-xl-2 offset-xl-3 mt-xl-0 col-lg-3 offset-lg-2 pt-lg-0 col-md-3 offset-md-2 mt-md-0 mr-md-0 d-md-flex col-sm-4 offset-sm-4 pt-sm-3 justify-content-sm-end"
       >
         <div class="headerCart pr-4">
-          <button :show="show" @click="show = !show" id="basket-toggler"></button>
-
-          <div class="headerCartWrap" id="basket">
-            <basket v-show="show" />
-
-            <div class="headerCartWrapBlock"></div>
-            <div class="headerCartWrapInAll">
-              <div id="basket-items" class="headerCartWrapInAll"></div>
-
-              <div class="headerCartWrapTotalPrice">
-                <div>total</div>
-                <div>$500.00</div>
-              </div>
-
-              <button type="button" class="productsButtonIndex">Checkout</button>
-              <button type="button" class="productsButtonIndex">Go to cart</button>
-            </div>
-          </div>
+          <button @click="backetshow = !backetshow" id="basket-toggler"></button>
+          <basket v-if="backetshow" />
         </div>
 
         <div class="dropdown">
@@ -225,13 +209,12 @@
 <script>
 import basket from "../components/basket.vue";
 export default {
-  props: ["show"],
   components: {
     basket
   },
   data() {
     return {
-      show: false
+      backetshow: false
     };
   }
 };
