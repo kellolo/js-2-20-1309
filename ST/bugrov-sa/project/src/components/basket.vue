@@ -1,9 +1,9 @@
-<template>
-    <div class="headerCartWrap" id="basket" v-show="showBasket">
+<template>    
+    <div class="headerCartWrap" id="basket" v-show="this.$store.state.basketShow">
         <div class="headerCartWrapBlock"></div>
         <div class="headerCartWrapInAll">
             <div id="basket-items" class="headerCartWrapInAll">
-                <item v-for="item of items" :key="item.productId" :item="item" :isCatalog="false" />
+                <item v-for="item of this.$store.state.basketItems" :key="item.productId" :item="item" type="basket" />
             </div>
             <div class="headerCartWrapTotalPrice">
                 <div>total</div>
@@ -18,28 +18,17 @@
 
 <script>
 import item from './item.vue';
+import { get } from '../utils/requests.js'
 
 export default {    
     components: { item },
-    data() {
-        return {
-            items: [],
-            url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
-            showBasket: true,
-        }
-    },
-    methods: {
-        get(url) {
-            return fetch(url).then(d => d.json());
-        },
-    },
     mounted() {
-        this.get(this.url)
-        .then(items => {this.items = items.content})
+        get(this.$store.state.basketUrl)
+        .then(items => {this.$store.commit('addBasketItem', items)})
     },
     computed: {
         total() {
-            let sum = this.items.reduce((sum, item) => (sum + item.productPrice * item.amount), 0);
+            let sum = this.$store.state.basketItems.reduce((sum, item) => (sum + item.productPrice * item.amount), 0);
             return sum ? sum : 0;
         }
     }

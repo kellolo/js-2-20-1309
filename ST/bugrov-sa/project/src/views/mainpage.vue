@@ -1,6 +1,6 @@
 <template>
 <div>
-    <headerSite />
+    <headerSite ref="headSite"/>
 
     <div class="topBanner">
         <div class="container topBannerContent px-sm-0">

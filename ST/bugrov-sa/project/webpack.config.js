@@ -19,8 +19,16 @@ module.exports = {
             template: './../public/index.html',
             filename: './../index.html'
         }),
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({ cleanStaleWebpackAssets: true }),
         new VueLoaderPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                { 
+                    from: './assets/imgs/',
+                    to: '../img/'
+                }
+            ]
+        })
     ],
     module: {
         rules: [
@@ -41,5 +49,19 @@ module.exports = {
                 loader: 'vue-loader'
             },
         ]
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        port: 8080,
+        publicPath: '/js/',
+        open: false,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:3000',
+                pathRewrite: { '^/api': '' },
+                secure: false,
+                changeOrigin: true
+            }
+        }
     }
 }

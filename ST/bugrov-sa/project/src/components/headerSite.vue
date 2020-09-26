@@ -9,7 +9,7 @@
                                             col-lg-2 offset-lg-0
                                             col-md-3 offset-md-4
                                             col-sm-4 offset-sm-4">
-                    <a href="#" class="pr-2"><img src="../assets/imgs/logo.png" alt="logo"></a>
+                    <a href="#" class="pr-2"><img src="img/logo.png" alt="logo"></a>
                     <a href="#" class="pr-3 pr-xl-3 pr-lg-0 pr-md-2 pr-sm-2 brand">bran<span>d</span></a>
                 </div>
 
@@ -61,7 +61,7 @@
 
 
                     <div class="headerCart pr-4" >
-                        <button id="basket-toggler" @click="showBasket = !showBasket"></button>
+                        <button id="basket-toggler" @click="basketShowfn"></button>
                         <basket />
                     </div>
 
@@ -479,7 +479,12 @@
 import basket from '../components/basket.vue'
 
 export default {
-    components: { basket }
+    components: { basket },
+    methods: {
+        basketShowfn() {
+            this.$store.commit('basketShowfn');
+        }
+    }
 }
 </script>
 

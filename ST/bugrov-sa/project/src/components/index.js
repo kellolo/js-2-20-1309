@@ -6,7 +6,7 @@ export default () => {
             filteredCatalogItems: [],
             catalogItems: [],
             basketItems: [],
-            cagtalogUrl: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
+            catalogUrl: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json',
             basketUrl: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/basket.json',
             showBasket: true,
         },
@@ -40,7 +40,7 @@ export default () => {
             }
         },
         mounted() {
-            this.get(this.cagtalogUrl)
+            this.get(this.catalogUrl)
                 .then(items => {
                     this.catalogItems = items;
                     this.filteredCatalogItems = items;
