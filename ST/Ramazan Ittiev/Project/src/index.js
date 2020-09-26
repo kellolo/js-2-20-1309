@@ -5,7 +5,6 @@ import './css/main.min.css';
 import Vue from 'vue';
 import app from './views/main.vue';
 
-// app();
 new Vue({
   render: (h) => h(app),
 }).$mount('#app');

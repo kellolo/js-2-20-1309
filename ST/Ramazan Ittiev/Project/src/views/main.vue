@@ -3,10 +3,14 @@
     <!-- HEADER -->
     <pageHeader />
 
+    <!-- PROMO -->
+    <promo />
+
     <!-- CATALOG -->
     <section class="catalog container">
       <h2 class="catalog__title title">Fetured Items</h2>
       <h3 class="catalog__subtitle subtitle">Shop for items based on what we featured in this week</h3>
+
       <!-- items -->
       <catalog />
 
@@ -16,25 +20,19 @@
 </template>
 
 <script>
-import catalog from "../js/catalog.vue";
-import basket from "../js/basket.vue";
-import pageHeader from "../js/pageHeader.vue";
-
+import pageHeader from "../components/header/pageHeader.vue";
+import promo from "../components/promo/promo.vue";
+import basket from "../components/header/basket.vue";
+import catalog from "../components/catalog/catalog.vue";
+// 
 export default {
   components: {
+    pageHeader,
+    promo,
     catalog,
     basket,
-    pageHeader,
-  },
-  methods: {
-    find(item) {
-      return this.basketItems.find((el) => {
-        el.productId == item.productId;
-      });
-    },
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

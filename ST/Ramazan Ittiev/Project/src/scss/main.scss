@@ -1,4 +1,12 @@
+* {
+  font-family: Lato;
+}
+
 @import './blocks';
 @import './fonts';
 @import './bootstrap-reboot.min';
-@import './general';
+@import '../components/header/header';
+@import '../components/promo/promo';
+@import '../components/catalog/catalog';
+@import '../components/footer/footer';
+@import '../components/item/item';
