@@ -10,22 +10,22 @@
 
 <script>
 import item from '../components/item.vue';
+import { get } from '../utils/requests.js';
 export default {
     components: { item },
     data() {
         return {
             items: [],
-            url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json'
+            //url: 'https://raw.githubusercontent.com/kellolo/static/master/JSON/catalog.json'
+            url: '/api/catalog'
+
         }
     },
     methods: {
-        get(url) {
-            return fetch(url)
-            .then(d => d.json());
-        },
+        
     },
     mounted() {
-        this.get(this.url).then(items => {this.items = items})
+        get(this.url).then(items => {this.items = items})
     }
 }
 </script>

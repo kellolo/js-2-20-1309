@@ -96,7 +96,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-center
                                     flex-lg-row">
                             <div class="">
-                                <img src="../assets/imgs/Truck.png" alt="">
+                                <img src="/img/Truck.png" alt="">
                             </div>
                             <div class="offerWomenDetail">
                                 <div class="offerWomenDetailUp">Free Delivery</div>
@@ -109,7 +109,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-center
                                     flex-lg-row">
                             <div class="">
-                                <img src="../assets/imgs/percent.png" alt="">
+                                <img src="/img/percent.png" alt="">
                             </div>
                             <div class="offerWomenDetail">
                                 <div class="offerWomenDetailUp">Free Delivery</div>
@@ -122,7 +122,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-center
                                     flex-lg-row">
                             <div class="">
-                                <img src="../assets/imgs/Crown.png" alt="">
+                                <img src="/img/Crown.png" alt="">
                             </div>
                             <div class="offerWomenDetail">
                                 <div class="offerWomenDetailUp">Free Delivery</div>
@@ -148,7 +148,7 @@
 
                 <div class="subscribeReview d-flex col-lg-6 px-0 mt-5 mb-5 pr-0 pr-lg-5">
                     <div class="col-2 col-md-2 d-flex align-self-start">
-                        <img src="../assets/imgs/Avatar.png" alt="Avatar">
+                        <img src="/img/Avatar.png" alt="Avatar">
                     </div>
                     <div class="col-10 pl-5 pl-md-2 pl-lg-5">
                         <blockquote class="reviewsTextMassage ">
@@ -201,6 +201,8 @@
 
     <!-------------------------------SUBSCRIBE END----------------------------->
     <footerSite />
+
+    
 </div>
 </template>
 

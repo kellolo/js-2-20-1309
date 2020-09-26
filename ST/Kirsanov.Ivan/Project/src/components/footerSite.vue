@@ -6,7 +6,7 @@
                 <div class="col-12 px-0
                             col-lg-6">
                     <div class="logo d-flex justify-content-center pb-3 justify-content-lg-start">
-                        <a href="#" class="pr-2"><img src="../assets/imgs/logo.png" alt="logo"></a>
+                        <a href="#" class="pr-2"><img src="/img/logo.png" alt="logo"></a>
                         <a href="#" class="pr-3 pr-xl-3 pr-lg-0 pr-md-2 pr-sm-2 brand">bran<span>d</span></a>
                     </div>
 
